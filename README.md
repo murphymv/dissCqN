@@ -5,6 +5,7 @@
 
 <!-- badges: start -->
 
+[![R-CMD-check](https://github.com/murphymv/dissCqN/workflows/R-CMD-check/badge.svg)](https://github.com/murphymv/dissCqN/actions)
 <!-- badges: end -->
 
 Calculate multiple assemblage dissimilarity for orders q = 0-*N* (Jost
@@ -22,22 +23,17 @@ Calculate multiple assemblage dissimilarity for orders q = 0-*N* (Jost
 
 <!-- ``` -->
 
-<!-- And the development version from [GitHub](https://github.com/) with: -->
-
-<!-- ``` r -->
-
-<!-- # install.packages("devtools") -->
-
-<!-- devtools::install_github("murphymv/dissCqN@develop") -->
-
-<!-- ``` -->
-
-You can install the current version of `dissCqN` from
-[GitHub](https://github.com/) with:
+You can install the released version of `dissCqN` with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("murphymv/dissCqN@main")
+devtools::install_github("murphymv/dissCqN")
+```
+
+And the development version with:
+
+``` r
+devtools::install_github("murphymv/dissCqN@develop")
 ```
 
 <!-- ## Example -->
