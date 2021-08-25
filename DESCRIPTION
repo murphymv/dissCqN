@@ -1,7 +1,7 @@
 Package: dissCqN
 Type: Package
 Title: Multiple Assemblage Dissimilarity for Orders q = 0-N
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: person(given = "Mark", family = "Murphy", role = c("aut", "cre"), 
     email = "murphymv@gmail.com")
 Description: Calculate multiple or pairwise dissimilarity for orders q = 0-N 
