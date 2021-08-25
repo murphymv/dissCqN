@@ -86,8 +86,7 @@
 
     
     
-<p><code>dissCqN</code> is a small package designed to make the process of calculating multiple or pairwise assemblage dissimilarity via the C<sub><em>qN</em></sub> generalisation of similarity indices <span class="citation">(Chao et al. 2008; Jost, Chao, and Chazdon 2011)</span> relatively straightforward and fast. Although C<sub><em>qN</em></sub> can also be calculated using the <code>SpadeR</code> package (e.g. <a href="https://rdrr.io/cran/SpadeR/man/SimilarityMult.html"><code>SpadeR::SimilarityMult()</code></a> and <a href="https://rdrr.io/cran/SpadeR/man/SimilarityPair.html"><code>SpadeR::SimilarityPair()</code></a>) — which generates a more comprehensive set of measures and also standard errors/confidence intervals — the main advantage of <code>dissCqN</code> is it’s simplicity and speed, if only the original empirical C<sub><em>qN</em></sub> measures are required (and if dissimilarity is preferred to similarity). Everything can be accomplished using a single function, <code><a href="../reference/dissCqN.html">dissCqN::dissCqN()</a></code>, which takes a matrix of assemblages x species as it’s first argument (or even a list of species interaction matrices, if network dissimilarity is of interest).</p>
-<p>We can demonstrate its usage by calculating dissimilarity for a dataset of tree species counts from tropical forests of Barro Colorado Island, Panama <span class="citation">(Condit et al. 2002)</span>, <a href="https://rdrr.io/cran/vegan/man/BCI.html">provided with the <code>vegan</code> package</a>. The dataset has 50 sampled 1-hectare forest plots (rows) and 225 total tree species (columns). Let’s take a look at a sample:</p>
+<p>Let’s use <code>dissCqN</code> to calculate dissimilarity for a dataset of tree species counts from tropical forests of Barro Colorado Island, Panama <span class="citation">(Condit et al. 2002)</span>, <a href="https://rdrr.io/cran/vegan/man/BCI.html">provided with the <code>vegan</code> package</a>. The dataset has 50 sampled 1-hectare forest plots (rows) and 225 total tree species (columns). Let’s take a look at a sample:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages(c("dissCqN", "vegan"))</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://murphymv.github.io/dissCqN/">dissCqN</a></span><span class="op">)</span>
@@ -99,60 +98,60 @@
 <table class="table">
 <colgroup>
 <col width="8%">
-<col width="18%">
-<col width="17%">
+<col width="24%">
 <col width="15%">
 <col width="20%">
-<col width="20%">
+<col width="18%">
+<col width="15%">
 </colgroup>
 <thead><tr class="header">
 <th align="left"></th>
-<th align="right">Sterculia.apetala</th>
-<th align="right">Vismia.baccifera</th>
-<th align="right">Inga.semialata</th>
-<th align="right">Pouteria.reticulata</th>
-<th align="right">Terminalia.amazonia</th>
+<th align="right">Trichospermum.galeottii</th>
+<th align="right">Inga.goldmanii</th>
+<th align="right">Lindackeria.laurina</th>
+<th align="right">Casearia.aculeata</th>
+<th align="right">Andira.inermis</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">plot_40</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">7</td>
-<td align="right">5</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="left">plot_17</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">5</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
-<td align="left">plot_41</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">3</td>
-<td align="right">3</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="left">plot_21</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
-<td align="left">plot_3</td>
+<td align="left">plot_35</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">2</td>
-<td align="right">3</td>
 <td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">plot_40</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">plot_4</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">plot_37</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">plot_43</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">2</td>
 </tr>
 </tbody>
 </table>
@@ -174,7 +173,7 @@
   <span class="va">BCI.diss.pair</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dissCqN.html">dissCqN</a></span><span class="op">(</span><span class="va">BCI</span>, <span class="va">q</span>, pairwise <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;  11.492   0.113  12.087</span></code></pre></div>
+<span class="co">#&gt;  11.447   0.121  11.631</span></code></pre></div>
 <p>This generates a symmetrical pairwise dissimilarity matrix for each value of q, returned in a list:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># for q = 0:2:</span>
@@ -221,9 +220,6 @@
 <h4 class="hasAnchor">
 <a href="#references" class="anchor"></a>References</h4>
 <div id="refs" class="references">
-<div id="ref-chaoTwoStageProbabilisticApproach2008">
-<p>Chao, Anne, Lou Jost, S. C. Chiang, Y.-H. Jiang, and Robin L. Chazdon. 2008. “A Two-Stage Probabilistic Approach to Multiple-Community Similarity Indices.” <em>Biometrics</em> 64 (4): 1178–86. <a href="https://doi.org/10/fcvn63">https://doi.org/10/fcvn63</a>.</p>
-</div>
 <div id="ref-conditBetaDiversityTropicalForest2002">
 <p>Condit, Richard, Nigel Pitman, Egbert G. Leigh, Jérôme Chave, John Terborgh, Robin B. Foster, Percy Núñez, et al. 2002. “Beta-Diversity in Tropical Forest Trees.” <em>Science</em> 295 (5555): 666–69. <a href="https://doi.org/10/c8cjfz">https://doi.org/10/c8cjfz</a>.</p>
 </div>
