@@ -9,9 +9,22 @@
 
 <!-- badges: end -->
 
-Calculate multiple or pairwise dissimilarity for orders *q* = 0-*N*
-(Chao et al. 2008, Jost *et al.* 2011) for a set of species assemblages
-or interaction networks.
+`dissCqN` is a small package designed to make the process of calculating
+multiple or pairwise assemblage dissimilarity via the C*qN*
+generalisation of similarity indices (Chao et al. 2008, Jost *et al.*
+2011) relatively straightforward and fast. Although C*qN* can also be
+calculated using the `SpadeR` package
+(e.g. [`SpadeR::SimilarityMult()`](https://rdrr.io/cran/SpadeR/man/SimilarityMult.html)
+and
+[`SpadeR::SimilarityPair()`](https://rdrr.io/cran/SpadeR/man/SimilarityPair.html))
+— which generates a more comprehensive set of measures and also standard
+errors/confidence intervals — the main advantage of `dissCqN` is it’s
+simplicity and speed, when only the original empirical C*qN* measures
+are required (and if dissimilarity is preferred to similarity).
+Everything can be accomplished using a single function,
+`dissCqN::dissCqN()`, which takes a matrix of assemblages x species as
+it’s first argument (or even a list of species interaction matrices, if
+network dissimilarity is of interest).
 
 ## Installation
 
@@ -28,8 +41,10 @@ And the development version with:
 devtools::install_github("murphymv/dissCqN@dev")
 ```
 
+## Example
+
 See [here](https://murphymv.github.io/dissCqN/articles/dissCqN.html) for
-package examples and more information.
+examples and further details.
 
 ## References
 

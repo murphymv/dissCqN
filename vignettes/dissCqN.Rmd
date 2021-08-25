@@ -17,9 +17,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-`dissCqN` is a small package designed to make the process of calculating multiple or pairwise assemblage dissimilarity via the C~*qN*~ generalisation of similarity indices [@chaoTwoStageProbabilisticApproach2008; @jostCompositionalSimilarityBeta2011] relatively straightforward and fast. Although C~*qN*~ can also be calculated using the `SpadeR` package (e.g. [`SpadeR::SimilarityMult()`](https://rdrr.io/cran/SpadeR/man/SimilarityMult.html) and [`SpadeR::SimilarityPair()`](https://rdrr.io/cran/SpadeR/man/SimilarityPair.html)) --- which generates a more comprehensive set of measures and also standard errors/confidence intervals --- the main advantage of `dissCqN` is it's simplicity and speed, if only the original empirical C~*qN*~ measures are required (and if dissimilarity is preferred to similarity). Everything can be accomplished using a single function, `dissCqN::dissCqN()`, which takes a matrix of assemblages x species as it's first argument (or even a list of species interaction matrices, if network dissimilarity is of interest).
-
-We can demonstrate its usage by calculating dissimilarity for a dataset of tree species counts from tropical forests of Barro Colorado Island, Panama [@conditBetaDiversityTropicalForest2002], [provided with the `vegan` package](https://rdrr.io/cran/vegan/man/BCI.html). The dataset has 50 sampled 1-hectare forest plots (rows) and 225 total tree species (columns). Let's take a look at a sample:
+Let's use `dissCqN` to calculate dissimilarity for a dataset of tree species counts from tropical forests of Barro Colorado Island, Panama [@conditBetaDiversityTropicalForest2002], [provided with the `vegan` package](https://rdrr.io/cran/vegan/man/BCI.html). The dataset has 50 sampled 1-hectare forest plots (rows) and 225 total tree species (columns). Let's take a look at a sample:
 
 ```{r}
 # install.packages(c("dissCqN", "vegan"))
