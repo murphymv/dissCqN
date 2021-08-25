@@ -15,6 +15,7 @@ Imports:
     stats
 Suggests: 
     knitr,
+    markdown,
     rmarkdown,
     SpadeR,
     vegan
