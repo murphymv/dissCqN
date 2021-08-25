@@ -141,7 +141,7 @@ intMat <- function(net, shared.spp = FALSE, ...) {
 #'   (if `mat` is a list of networks).
 #' @param parallel The type of parallel processing to use, if any. Can be one of
 #'   `"snow"`, `"multicore"`, or `"no"` (for none — the default). Passed to
-#'   [semEff::pSapply()].
+#'   [pSapply()].
 #' @param ncpus Number of system cores to use for parallel processing. If `NULL`
 #'   (default), all available cores are used.
 #' @param cl Optional cluster to use if `parallel = "snow"`. If `NULL`

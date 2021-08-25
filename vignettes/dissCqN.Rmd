@@ -17,9 +17,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-`dissCqN` is a small package designed to make the process of calculating multiple or pairwise species assemblage dissimilarity via the C~*qN*~ generalisation of similarity indices [@jostCompositionalSimilarityBeta2011] relatively straightforward and fast. C~*qN*~ can also be calculated using the `SpadeR` package (e.g. [`SpadeR::SimilarityMult()`](https://rdrr.io/cran/SpadeR/man/SimilarityMult.html)), which can generate a more comprehensive set of community measures (and standard errors/confidence intervals). However, the main advantage of `dissCqN::dissCqN()` is it's simplicity and speed, if only the emprical measures are required (and it can also be applied to species interaction networks).
+`dissCqN` is a small package designed to make the process of calculating multiple or pairwise assemblage dissimilarity via the C~*qN*~ generalisation of similarity indices [@chaoTwoStageProbabilisticApproach2008; @jostCompositionalSimilarityBeta2011] relatively straightforward and fast. Although C~*qN*~ can also be calculated using the `SpadeR` package (e.g. [`SpadeR::SimilarityMult()`](https://rdrr.io/cran/SpadeR/man/SimilarityMult.html) and [`SpadeR::SimilarityPair()`](https://rdrr.io/cran/SpadeR/man/SimilarityPair.html)) --- which generates a more comprehensive set of measures and also standard errors/confidence intervals --- the main advantage of `dissCqN` is it's simplicity and speed, if only the original empirical C~*qN*~ measures are required (and if dissimilarity is preferred to similarity). Everything can be accomplished using a single function, `dissCqN::dissCqN()`, which takes a matrix of assemblages x species as it's first argument (or even a list of species interaction matrices, if network dissimilarity is of interest).
 
-For a demonstration, we'll calculate dissimilarity for a [dataset](https://rdrr.io/cran/vegan/man/BCI.html) of tree species counts from tropical forests of Barro Colorado Island, Panama [@conditBetaDiversityTropicalForest2002], provided with the `vegan` package. The dataset has 50 sampled 1-hectare forest plots (rows) and 225 total tree species (columns):
+We can demonstrate its usage by calculating dissimilarity for a dataset of tree species counts from tropical forests of Barro Colorado Island, Panama [@conditBetaDiversityTropicalForest2002], [provided with the `vegan` package](https://rdrr.io/cran/vegan/man/BCI.html). The dataset has 50 sampled 1-hectare forest plots (rows) and 225 total tree species (columns). Let's take a look at a sample:
 
 ```{r}
 # install.packages(c("dissCqN", "vegan"))
@@ -33,7 +33,7 @@ knitr::kable(
 
 We can calculate multiple-assemblage dissimilarity for the forest plots for, say, orders *q* = 0-6:
 
-```{r eval = TRUE}
+```{r}
 q <- 0:6
 (BCI.diss.multi <- dissCqN(BCI, q))
 ```
@@ -45,9 +45,7 @@ plot(q, BCI.diss.multi, ylab = "Dissimilarity")
 lines(q, BCI.diss.multi)
 ```
 
-We can see that when only presence-absence of trees is considered (*q* = 0), dissimilarity is very low (0.03) --- implying no major changes in species occurrence across the sampled plots. When tree abundance is taken into account however, dissimilarity steadily increases through the values of *q* as changes in relative abundance of common species have increasing influence (reaching \>0.99 for *q* = 6).
-
-Although the SpadeR package .........
+We can see that when only presence-absence of trees is considered (*q* = 0, or Sorensen dissimilarity), dissimilarity is very low (0.03) --- implying no major difference in species composition in the sampled assemblages. When tree abundance is taken into account however, dissimilarity steadily increases through the values of *q* as changes in relative abundance of common species have increasing influence on community difference (reaching \>0.99 for *q* = 6). Plotting such profiles can help to illustrate the dominance of common species in the community, with steeper increases associated with higher dominance. If under-sampling of the community is suspected to be an issue, dissimilarity for *q* \> 0 (and perhaps \> 1) is likely to be more reliable for assessing difference, as the common species are probably still sampled relatively accurately using the abundance-based measures.
 
 What about pairwise dissimilarity? Simply set `pairwise = TRUE`:
 
@@ -57,17 +55,29 @@ system.time(
 )
 ```
 
-This results in a symmetrical pairwise dissimilarity matrix for each value of q, returned in a list (if multiple). Let's see matrices for *q* = 0:2:
+This generates a symmetrical pairwise dissimilarity matrix for each value of q, returned in a list:
 
 ```{r}
+# for q = 0:2:
 lapply(BCI.diss.pair[1:3], function(i) i[1:5, 1:5])
 ```
 
-Subsets of assemblages can also be compared pairwise, if only some comparisons are of interest:
+Note that another way to assess overall dissimilarity might be to take the means of these pairwise matrices (omitting self-comparisons):
 
 ```{r}
-dissCqN(BCI, q = 0, pairwise = TRUE, 
-        compare.sub = list(c("plot_1", "plot_2"), c("plot_3", "plot_4", "plot_5")))
+sapply(BCI.diss.pair, function(i) {
+  sum(i) / (prod(dim(i)) - dim(i)[1])
+})
 ```
+
+These values are biased however, as they never take into account species shared by more than two assemblages, and there is also the problem of covariance between the pairwise comparisons [@diserudMultiplesiteSimilarityMeasure2007]. Multiple-assemblage measures should generally be preferred when assessing overall community difference for randomly-sampled assemblages. However, when assessing change across ordered assemblages, for example those along geographic or environmental gradients, pairwise comparisons can be useful.
+
+Subsets of assemblages can also be compared pairwise (using names or indices), if only some comparisons are of interest:
+
+```{r}
+dissCqN(BCI, q = 0, pairwise = TRUE, compare.sub = list(1:2, 3:5))
+```
+
+This could potentially save time if the total number of assemblages in the dataset is very large.
 
 #### References

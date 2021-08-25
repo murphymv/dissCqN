@@ -7,7 +7,7 @@
 \title{dissCqN: Multiple Assemblage Dissimilarity for Orders q = 0-N}
 \description{
 Calculate multiple or pairwise dissimilarity for orders q = 0-N 
-    (CqN; Jost et al. 2011, ISBN: 978-0-19-958067-5) for a set of species 
+    (CqN; Jost et al. 2011 ISBN:978-0-19-958067-5) for a set of species 
     assemblages or interaction networks.
 }
 \seealso{
