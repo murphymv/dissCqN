@@ -1,0 +1,8 @@
+development:
+  mode: auto
+repo:
+  branch: main
+template:
+  params:
+    bootswatch: darkly
+url: https://murphymv.github.io/dissCqN/

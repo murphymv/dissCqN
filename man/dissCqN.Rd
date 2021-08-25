@@ -4,7 +4,16 @@
 \alias{dissCqN}
 \title{Multiple Assemblage Dissimilarity}
 \usage{
-dissCqN(mat, q = 0:2, shared.spp = FALSE)
+dissCqN(
+  mat,
+  q = 0:2,
+  pairwise = FALSE,
+  compare.sub = NULL,
+  shared.spp = FALSE,
+  parallel = "no",
+  ncpus = NULL,
+  cl = NULL
+)
 }
 \arguments{
 \item{mat}{A matrix with assemblages in rows and species or species
@@ -12,31 +21,102 @@ interactions in columns. Alternatively, a list of matrices, which will be
 interpreted as interaction networks and used to construct an assemblage x
 interaction matrix.}
 
-\item{q}{Integer, the orders of \code{q} for which to calculate
-dissimilarity. Can be any set of integers between 0 and \emph{N} (the
-number of assemblages in \code{mat}).}
+\item{q}{Integer, the order(s) of \emph{q} for which to calculate dissimilarity.
+Can be any set of integers between 0 and \emph{N} (the number of assemblages in
+\code{mat}).}
+
+\item{pairwise}{Logical, whether to calculate pairwise, rather than multiple
+assemblage, dissimilarity.}
+
+\item{compare.sub}{Subsets of assemblages to compare pairwise. These should
+be supplied as a list of two sets of assemblage names or indices. If only
+one set is supplied, this is compared to all other assemblages in \code{mat}. If
+more than two sets are supplied, only the first two are used. If \code{NULL}
+(default), all assemblages are compared.}
 
 \item{shared.spp}{Logical, whether to compare networks of shared species only
 (if \code{mat} is a list of networks).}
+
+\item{parallel}{The type of parallel processing to use, if any. Can be one of
+\code{"snow"}, \code{"multicore"}, or \code{"no"} (for none — the default). Passed to
+\code{\link[semEff:pSapply]{semEff::pSapply()}}.}
+
+\item{ncpus}{Number of system cores to use for parallel processing. If \code{NULL}
+(default), all available cores are used.}
+
+\item{cl}{Optional cluster to use if \code{parallel = "snow"}. If \code{NULL}
+(default), a local cluster is created using the specified number of cores.}
 }
 \value{
-A numeric vector of dissimilarities for the orders of \code{q}.
+A numeric vector of dissimilarities, or a pairwise dissimilarity
+matrix (or list of matrices), for the orders of \code{q}.
 }
 \description{
-Multiple assemblage dissimilarity for orders \emph{q} =
-  0-\emph{N}.
+Multiple assemblage dissimilarity for orders \emph{q} = 0-\emph{N}.
+}
+\details{
+Dissimilarity is calculated here for multiple species assemblages
+(or interaction networks) via the \emph{CqN} generalisation of similarity
+indices (Chao \emph{et al.} 2008, Jost \emph{et al.} 2011). Increasing the value of
+\code{q} increases the 'depth' of the measure, that is, how much emphasis is
+placed on changes in relative abundance of the most common species. Setting
+\code{q = 0} represents the qualitative Sørensen index (Sørensen 1948), where
+rare and common species are treated equally. \code{q} > 0 is more sensitive to
+common species, with \code{q = 1} representing the Shannon-based Horn index
+(Horn 1966) and \code{q = 2} the Simpson-based Morisita-Horn index (Morisita
+1959, Horn 1966). For \emph{N} > 2, indices are generalised to consider species
+shared across multiple assemblages (Diserud & Ødegaard 2007, eqns. 6.3-6.5
+in Jost \emph{et al.} 2011). For \code{q} >= 2 <= \emph{N}, common species increasingly
+dominate the measure, and it can then be interpreted as the ratio of two
+probabilities of randomly sampling \code{q} individuals of the same species from
+the \emph{N} assemblages, where 1) the individuals came from at least one
+different assemblage (\eqn{^{q}G_{D}}{qGD}) and 2) they all came from the
+same assemblage (\eqn{^{q}G_{S}}{qGS}) (Jost \emph{et al.} 2011). Dissimilarity
+is thus:
+
+\deqn{1 - ^{q}G_{D} / ^{q}G_{S}}{1 - qGD / qGS}
+
+Pairwise dissimilarity can be calculated for all or a subset of the
+assemblages (or networks) in \code{mat}, in which case a dissimilarity matrix is
+returned (one for each value of \code{q}). If comparing subsets, the names or
+indices of assemblages to compare should be supplied to \code{compare.sub}. Note
+that pairwise calculation may take a long time if \emph{N} is large, in which
+case parallel processing may speed up results (e.g. \code{parallel = "snow"}).
+
+If \code{shared.spp = TRUE} and \code{mat} is a list of interaction networks (as
+matrices), multiple or pairwise interaction dissimilarity will be
+calculated for networks of shared species only (see \code{\link[=netShared]{netShared()}}). This
+can be useful to help partition the different components of network
+dissimilarity, e.g. dissimilarity due to interaction 'rewiring' among
+shared species vs. that due to species turnover (Poisot \emph{et al.} 2012).
 }
 \references{
 Chao, A., Jost, L., Chiang, S. C., Jiang, Y.-H., & Chazdon, R. L.
-  (2008). A Two-Stage Probabilistic Approach to Multiple-Community Similarity
-  Indices. \emph{Biometrics}, \strong{64}(4), 1178–1186.
-  \url{https://doi.org/fcvn63}
+(2008). A Two-Stage Probabilistic Approach to Multiple-Community Similarity
+Indices. \emph{Biometrics}, \strong{64}(4), 1178–1186. \url{https://doi.org/fcvn63}
 
-  Diserud, O. H., & Ødegaard, F. (2007). A multiple-site similarity measure.
-  \emph{Biology Letters}, \strong{3}(1), 20–22. \url{https://doi.org/bwhfx6}
+Diserud, O. H., & Ødegaard, F. (2007). A multiple-site similarity measure.
+\emph{Biology Letters}, \strong{3}(1), 20–22. \url{https://doi.org/bwhfx6}
 
-  Jost, L., Chao, A., & Chazdon, R. L. (2011). Compositional similarity and
-  beta diversity. In A. E. Magurran & B. J. McGill (Eds.), \emph{Biological
-  Diversity: Frontiers in Measurement and Assessment} (pp. 66–84). Oxford
-  University Press.
+Horn, H. S. (1966). Measurement of “Overlap” in Comparative Ecological
+Studies. \emph{The American Naturalist}, \strong{100}(914), 419–424.
+\url{https://doi.org/10/b62ct5}
+
+Jost, L., Chao, A., & Chazdon, R. L. (2011). Compositional similarity and
+beta diversity. In A. E. Magurran & B. J. McGill (Eds.), \emph{Biological
+Diversity: Frontiers in Measurement and Assessment} (pp. 66–84). Oxford
+University Press.
+
+Morisita, M. (1959). Measuring of interspecific association and similarity
+between communities. \emph{Memoirs of the Faculty of Science, Kyushu Univ.,
+Series E (Biology)}, \strong{3}, 65–80.
+
+Poisot, T., Canard, E., Mouillot, D., Mouquet, N., & Gravel, D. (2012). The
+dissimilarity of species interaction networks. \emph{Ecology Letters},
+\strong{15}(12), 1353–1361. \url{https://doi.org/10/f4dv37}
+
+Sørensen, T. (1948). A method of establishing groups of equal amplitude in
+plant sociology based on similarity of species and its application to
+analyses of the vegetation on Danish commons. \emph{Kongelige Danske
+Videnskabernes Selskabs Biologiske Skrifter}, \strong{5}, 1–34.
 }

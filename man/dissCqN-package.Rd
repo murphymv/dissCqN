@@ -6,12 +6,14 @@
 \alias{_PACKAGE}
 \title{dissCqN: Multiple Assemblage Dissimilarity for Orders q = 0-N}
 \description{
-Calculate multiple assemblage dissimilarity for orders q = 0-N 
-    (Jost et al. 2011) for a set of species assemblages or interaction networks.
+Calculate multiple or pairwise dissimilarity for orders q = 0-N 
+    (CqN; Jost et al. 2011, ISBN: 978-0-19-958067-5) for a set of species 
+    assemblages or interaction networks.
 }
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://murphymv.github.io/dissCqN/}
   \item \url{https://github.com/murphymv/dissCqN}
   \item Report bugs at \url{https://github.com/murphymv/dissCqN/issues}
 }

@@ -4,21 +4,26 @@ Title: Multiple Assemblage Dissimilarity for Orders q = 0-N
 Version: 0.0.0.9000
 Authors@R: person(given = "Mark", family = "Murphy", role = c("aut", "cre"), 
     email = "murphymv@gmail.com")
-Description: Calculate multiple assemblage dissimilarity for orders q = 0-N 
-    (Jost et al. 2011) for a set of species assemblages or interaction networks. 
-URL: https://github.com/murphymv/dissCqN
+Description: Calculate multiple or pairwise dissimilarity for orders q = 0-N 
+    (CqN; Jost et al. 2011, ISBN: 978-0-19-958067-5) for a set of species 
+    assemblages or interaction networks. 
+URL: https://murphymv.github.io/dissCqN/, https://github.com/murphymv/dissCqN
 BugReports: https://github.com/murphymv/dissCqN/issues
 Depends: R (>= 4.0.0)
 Imports: 
     parallel,
-    stats,
-    utils,
-    semEff
+    stats
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    SpadeR,
+    vegan,
+    vegetarian
+VignetteBuilder: knitr
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
+LazyDataCompression: xz
+Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Language: en-GB

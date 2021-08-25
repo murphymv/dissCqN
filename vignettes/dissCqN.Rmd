@@ -1,0 +1,73 @@
+---
+title: "dissCqN"
+author: "Mark V. Murphy"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{dissCqN}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+bibliography: references.bib
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+`dissCqN` is a small package designed to make the process of calculating multiple or pairwise species assemblage dissimilarity via the C~*qN*~ generalisation of similarity indices [@jostCompositionalSimilarityBeta2011] relatively straightforward and fast. C~*qN*~ can also be calculated using the `SpadeR` package (e.g. [`SpadeR::SimilarityMult()`](https://rdrr.io/cran/SpadeR/man/SimilarityMult.html)), which can generate a more comprehensive set of community measures (and standard errors/confidence intervals). However, the main advantage of `dissCqN::dissCqN()` is it's simplicity and speed, if only the emprical measures are required (and it can also be applied to species interaction networks).
+
+For a demonstration, we'll calculate dissimilarity for a [dataset](https://rdrr.io/cran/vegan/man/BCI.html) of tree species counts from tropical forests of Barro Colorado Island, Panama [@conditBetaDiversityTropicalForest2002], provided with the `vegan` package. The dataset has 50 sampled 1-hectare forest plots (rows) and 225 total tree species (columns):
+
+```{r}
+# install.packages(c("dissCqN", "vegan"))
+library(dissCqN)
+data(BCI, package = "vegan")
+rownames(BCI) <- paste0("plot_", 1:nrow(BCI))
+knitr::kable(
+  BCI[sample(1:nrow(BCI), 5), sample(1:ncol(BCI), 5)]
+)
+```
+
+We can calculate multiple-assemblage dissimilarity for the forest plots for, say, orders *q* = 0-6:
+
+```{r eval = TRUE}
+q <- 0:6
+(BCI.diss.multi <- dissCqN(BCI, q))
+```
+
+And plot a dissimilarity profile for *q* [@jostCompositionalSimilarityBeta2011]:
+
+```{r}
+plot(q, BCI.diss.multi, ylab = "Dissimilarity")
+lines(q, BCI.diss.multi)
+```
+
+We can see that when only presence-absence of trees is considered (*q* = 0), dissimilarity is very low (0.03) --- implying no major changes in species occurrence across the sampled plots. When tree abundance is taken into account however, dissimilarity steadily increases through the values of *q* as changes in relative abundance of common species have increasing influence (reaching \>0.99 for *q* = 6).
+
+Although the SpadeR package .........
+
+What about pairwise dissimilarity? Simply set `pairwise = TRUE`:
+
+```{r}
+system.time(
+  BCI.diss.pair <- dissCqN(BCI, q, pairwise = TRUE)
+)
+```
+
+This results in a symmetrical pairwise dissimilarity matrix for each value of q, returned in a list (if multiple). Let's see matrices for *q* = 0:2:
+
+```{r}
+lapply(BCI.diss.pair[1:3], function(i) i[1:5, 1:5])
+```
+
+Subsets of assemblages can also be compared pairwise, if only some comparisons are of interest:
+
+```{r}
+dissCqN(BCI, q = 0, pairwise = TRUE, 
+        compare.sub = list(c("plot_1", "plot_2"), c("plot_3", "plot_4", "plot_5")))
+```
+
+#### References

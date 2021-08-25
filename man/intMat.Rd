@@ -11,14 +11,13 @@ intMat(net, shared.spp = FALSE, ...)
 
 \item{shared.spp}{Logical, whether to use networks of shared species only.}
 
-\item{...}{Arguments to \code{\link[dissCqN]{netShared}} (if \code{shared.spp
-= TRUE}).}
+\item{...}{Arguments to \code{\link[=netShared]{netShared()}} (if \code{shared.spp = TRUE}).}
 }
 \value{
 A matrix with assemblages in rows and species interactions in
-  columns.
+columns.
 }
 \description{
-Generate matrix of assemblages x species interactions from a
-  set of networks.
+Generate a matrix of assemblages x species interactions from a
+set of networks.
 }
