@@ -3,8 +3,6 @@
 export(dissCqN)
 export(intMat)
 export(netShared)
-export(pSapply)
-export(rMapply)
 import(parallel)
 import(stats)
 import(utils)

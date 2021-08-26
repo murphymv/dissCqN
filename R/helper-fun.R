@@ -50,7 +50,6 @@ isMod <- function(x) {
 #'   object is a numeric vector of weights.
 #' @return The output of `FUN` in a list or nested list, or simplified to a
 #'   vector or array (or list of arrays).
-#' @export
 rMapply <- function(FUN, ..., MoreArgs = NULL, SIMPLIFY = TRUE,
                     USE.NAMES = TRUE) {
   l <- list(...)
@@ -99,7 +98,6 @@ rMapply <- function(FUN, ..., MoreArgs = NULL, SIMPLIFY = TRUE,
 #'   to `FUN` (and also any calls in `X`). Any additional required object names
 #'   can be supplied using `add.obj`.
 #' @return The output of `FUN` in a list, or simplified to a vector or array.
-#' @export
 pSapply <- function(X, FUN, parallel = c("snow", "multicore", "no"),
                     ncpus = NULL, cl = NULL, add.obj = NULL, ...) {
 
