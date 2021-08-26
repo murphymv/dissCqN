@@ -296,10 +296,9 @@ dissCqN <- function(mat, q = 0:2, pairwise = FALSE, compare.sub = NULL,
     if (!is.null(cs)) {
       if (!isList(cs)) cs <- list(cs)
       n1 <- cs[[1]]
-      if (is.numeric(n1)) n1 <- n[n1]
-      n2 <- if (length(cs) > 1) cs[[2]]
-      if (is.numeric(n2)) n2 <- n[n2]
-      if (is.null(n2)) n2 <- n[!n %in% n1]
+      n1 <- if (is.character(n1)) n[n %in% n1] else n[n1]
+      n2 <- if (length(cs) > 1) cs[[2]] else n[!n %in% n1]
+      n2 <- if (is.character(n2)) n[n %in% n2] else n[n2]
       if (!net2) {
         s1 <- which(n %in% n1)
         s2 <- which(n %in% n2)
