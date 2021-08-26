@@ -24,6 +24,7 @@ netShared <- function(net, pairwise = TRUE, compare.sub = NULL) {
   # List of networks
   if (!isList(n)) n <- list(n)
   if (is.null(names(n))) names(n) <- paste0("network", 1:length(n))
+  nn <- names(n)
 
   # Networks of shared species
   ns <- if (length(n) > 1) {
@@ -36,8 +37,10 @@ netShared <- function(net, pairwise = TRUE, compare.sub = NULL) {
       # Compare subsets?
       if (!is.null(cs)) {
         if (!isList(cs)) cs <- list(cs)
-        n1 <- n[cs[[1]]]
-        n2 <- if (length(cs) > 1) n[cs[[2]]] else n[!names(n) %in% names(n1)]
+        s1 <- cs[[1]]
+        n1 <- if (is.character(s1)) n[which(nn %in% s1)] else n[s1]
+        s2 <- if (length(cs) == 1) which(!nn %in% names(n1)) else cs[[2]]
+        n2 <- if (is.character(s2)) n[which(nn %in% s2)] else n[s2]
       }
 
       # Networks of shared species
@@ -50,8 +53,8 @@ netShared <- function(net, pairwise = TRUE, compare.sub = NULL) {
         })
       })
       ns <- lapply(rapply(ns, enquote, how = "unlist"), eval)
-      ns.nam <- gsub("(.{1}$)", "_\\1", names(ns))
-      setNames(ns, ns.nam)
+      nsn <- gsub("(.{1}$)", "_\\1", names(ns))
+      setNames(ns, nsn)
 
     } else {
 
@@ -297,7 +300,7 @@ dissCqN <- function(mat, q = 0:2, pairwise = FALSE, compare.sub = NULL,
       if (!isList(cs)) cs <- list(cs)
       n1 <- cs[[1]]
       n1 <- if (is.character(n1)) n[n %in% n1] else n[n1]
-      n2 <- if (length(cs) > 1) cs[[2]] else n[!n %in% n1]
+      n2 <- if (length(cs) == 1)  n[!n %in% n1] else cs[[2]]
       n2 <- if (is.character(n2)) n[n %in% n2] else n[n2]
       if (!net2) {
         s1 <- which(n %in% n1)
