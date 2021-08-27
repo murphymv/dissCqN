@@ -227,13 +227,12 @@ dissCqN <- function(mat, q = 0:2, pairwise = FALSE, compare.sub = NULL,
   if (net) m <- intMat(m, ss, pairwise = pairwise, compare.sub = cs)
   m <- as.matrix(m)
   if (any(is.na(m))) {
-    warning("Rows with missing data (NA) removed.")
+    warning("Assemblages with missing data (NA) removed.")
     m <- na.omit(m)
   }
-  m <- m[rowSums(m) > 0, , drop = FALSE]
 
   # No. of assemblages
-  N <- nrow(m)
+  N <- sum(rowSums(m) > 0)
 
   # Orders of dissimilarity
   q <- as.integer(round(q[q >= 0 & q <= max(2, N)]))
@@ -249,6 +248,7 @@ dissCqN <- function(mat, q = 0:2, pairwise = FALSE, compare.sub = NULL,
   dissCqN <- function(q, m) {
 
     # No. of assemblages
+    m <- m[rowSums(m) > 0, , drop = FALSE]
     N <- nrow(m)
 
     # CqN dissimilarity
@@ -286,12 +286,12 @@ dissCqN <- function(mat, q = 0:2, pairwise = FALSE, compare.sub = NULL,
     net2 <- net && ss
 
     # Pairwise comparisons (indices, names)
-    s2 <- s1 <- s <- 1:N
+    s2 <- s1 <- s <- 1:nrow(m)
     if (net2) {
       s1 <- s[c(FALSE, TRUE)]
       s2 <- s[c(TRUE, FALSE)]
     }
-    n <- if (net) names(mat) else rownames(m)
+    n <- if (net2) names(mat) else rownames(m)
     if (is.null(n)) n <- paste0(if (net) "network" else "assemblage", s)
     n2 <- n1 <- n
 
