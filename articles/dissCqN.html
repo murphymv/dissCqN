@@ -93,78 +93,82 @@
 <span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">BCI</span>, package <span class="op">=</span> <span class="st">"vegan"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">BCI</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"plot_"</span>, <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">BCI</span><span class="op">)</span><span class="op">)</span>
 <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>
-  <span class="va">BCI</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">BCI</span><span class="op">)</span>, <span class="fl">5</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">BCI</span><span class="op">)</span>, <span class="fl">5</span><span class="op">)</span><span class="op">]</span>
+  <span class="va">BCI</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">BCI</span><span class="op">)</span>, <span class="fl">5</span><span class="op">)</span>, 
+      <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">BCI</span><span class="op">)</span>, <span class="fl">5</span><span class="op">)</span><span class="op">]</span>
 <span class="op">)</span></code></pre></div>
 <table class="table">
 <colgroup>
 <col width="7%">
-<col width="17%">
-<col width="17%">
 <col width="18%">
-<col width="20%">
+<col width="21%">
 <col width="19%">
+<col width="17%">
+<col width="15%">
 </colgroup>
 <thead><tr class="header">
 <th align="left"></th>
-<th align="right">Licania.hypoleuca</th>
-<th align="right">Ficus.obtusifolia</th>
-<th align="right">Ormosia.macrocalyx</th>
-<th align="right">Schizolobium.parahyba</th>
+<th align="right">Triplaris.cumingiana</th>
+<th align="right">Diospyros.artanthifolia</th>
+<th align="right">Zanthoxylum.setulosum</th>
 <th align="right">Casearia.guianensis</th>
+<th align="right">Miconia.argentea</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">plot_31</td>
-<td align="right">0</td>
-<td align="right">0</td>
+<td align="left">plot_22</td>
+<td align="right">1</td>
+<td align="right">2</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 </tr>
 <tr class="even">
-<td align="left">plot_13</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
-<td align="left">plot_3</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="left">plot_6</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
 <td align="left">plot_34</td>
+<td align="right">11</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">plot_13</td>
+<td align="right">13</td>
 <td align="right">0</td>
 <td align="right">0</td>
+<td align="right">0</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">plot_46</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">plot_14</td>
+<td align="right">7</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">3</td>
 </tr>
 </tbody>
 </table>
 <p>We can calculate multiple-assemblage dissimilarity for the forest plots for, say, orders <em>q</em> = 0-6:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">q</span> <span class="op">&lt;-</span> <span class="fl">0</span><span class="op">:</span><span class="fl">6</span>
-<span class="op">(</span><span class="va">BCI.diss.multi</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dissCqN.html">dissCqN</a></span><span class="op">(</span><span class="va">BCI</span>, <span class="va">q</span><span class="op">)</span><span class="op">)</span>
+<span class="op">(</span><span class="va">BCI.diss.mult</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dissCqN.html">dissCqN</a></span><span class="op">(</span><span class="va">BCI</span>, <span class="va">q</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt;        C0N        C1N        C2N        C3N        C4N        C5N        C6N </span>
 <span class="co">#&gt; 0.03017387 0.11635124 0.36695937 0.68341668 0.89674072 0.97536758 0.99488515</span></code></pre></div>
 <p>And plot a dissimilarity profile for <em>q</em> <span class="citation">(Jost, Chao, and Chazdon 2011)</span>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">q</span>, <span class="va">BCI.diss.multi</span>, ylab <span class="op">=</span> <span class="st">"Dissimilarity"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">q</span>, <span class="va">BCI.diss.multi</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">bg</span> <span class="op">&lt;-</span> <span class="st">"#303030"</span>; <span class="va">fg</span> <span class="op">&lt;-</span> <span class="st">"#cccccc"</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>bg <span class="op">=</span> <span class="va">bg</span>, fg <span class="op">=</span> <span class="va">fg</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">q</span>, <span class="va">BCI.diss.mult</span>, xlab <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/grDevices/plotmath.html">italic</a></span><span class="op">(</span><span class="st">"q"</span><span class="op">)</span><span class="op">)</span>, ylab <span class="op">=</span> <span class="st">"Dissimilarity"</span>, 
+     col.axis <span class="op">=</span> <span class="va">fg</span>, col.lab <span class="op">=</span> <span class="va">fg</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">q</span>, <span class="va">BCI.diss.mult</span><span class="op">)</span></code></pre></div>
 <p><img src="dissCqN_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
 <p>We can see that when only presence-absence of trees is considered (<em>q</em> = 0, or Sorensen dissimilarity), dissimilarity is very low (0.03) — implying no major difference in species composition in the sampled assemblages. When tree abundance is taken into account however, dissimilarity steadily increases through the values of <em>q</em> as changes in relative abundance of common species have increasing influence on community difference (reaching &gt;0.99 for <em>q</em> = 6). Plotting such profiles can help to illustrate the dominance of common species in the community, with steeper increases associated with higher dominance. If under-sampling of the community is suspected to be an issue, dissimilarity for <em>q</em> &gt; 0 (and perhaps &gt; 1) is likely to be more reliable for assessing difference, as the common species are probably still sampled relatively accurately using the abundance-based measures.</p>
 <p>What about pairwise dissimilarity? Simply set <code>pairwise = TRUE</code>:</p>
@@ -173,7 +177,7 @@
   <span class="va">BCI.diss.pair</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dissCqN.html">dissCqN</a></span><span class="op">(</span><span class="va">BCI</span>, <span class="va">q</span>, pairwise <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;  10.788   0.125  10.982</span></code></pre></div>
+<span class="co">#&gt;  10.047   0.049  10.106</span></code></pre></div>
 <p>This generates a symmetrical pairwise dissimilarity matrix for each value of q, returned in a list:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># for q = 0:2:</span>
