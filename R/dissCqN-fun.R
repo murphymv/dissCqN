@@ -189,6 +189,10 @@ intMat <- function(net, shared.spp = FALSE, ...) {
 #'   (2008). A Two-Stage Probabilistic Approach to Multiple-Community Similarity
 #'   Indices. *Biometrics*, **64**(4), 1178–1186. <https://doi.org/fcvn63>
 #'
+#'   Chao, A., Ma, K. H., Hsieh, T. C., & Chiu, C.-H. (2016). *SpadeR:
+#'   Species-Richness Prediction and Diversity Estimation with R*, R package
+#'   version 0.1.1. <https://CRAN.R-project.org/package=SpadeR>
+#'
 #'   Diserud, O. H., & Ødegaard, F. (2007). A multiple-site similarity measure.
 #'   *Biology Letters*, **3**(1), 20–22. <https://doi.org/bwhfx6>
 #'
@@ -213,6 +217,24 @@ intMat <- function(net, shared.spp = FALSE, ...) {
 #'   plant sociology based on similarity of species and its application to
 #'   analyses of the vegetation on Danish commons. *Kongelige Danske
 #'   Videnskabernes Selskabs Biologiske Skrifter*, **5**, 1–34.
+#' @examples
+#' # Calculate CqN dissimilarity for orders q = 0:2
+#'
+#' # Load sample community data from SpadeR package (Chao et al. 2016)
+#' data(SimilarityMultData, package = "SpadeR")
+#' d <- SimilarityMultData$Abu
+#'
+#' # Dissimilarity
+#' (CqN <- dissCqN::dissCqN(t(d)))
+#'
+#' # Compare to empirical values from SpadeR::SimilarityMult()
+#' sim <- SpadeR::SimilarityMult(d, datatype = "abundance", nboot = 1)
+#' CqN_2 <- 1 - c(
+#'   "C0N" = sim$Empirical_richness["C0N(q=0,Sorensen)", "Estimate"],
+#'   "C1N" = sim$Empirical_relative["C1N=U1N(q=1,Horn)", "Estimate"],
+#'   "C2N" = sim$Empirical_relative["C2N(q=2,Morisita)", "Estimate"]
+#' )
+#' stopifnot(all.equal(CqN, CqN_2))
 #' @export
 dissCqN <- function(mat, q = 0:2, pairwise = FALSE, compare.sub = NULL,
                     shared.spp = FALSE, parallel = "no", ncpus = NULL,
@@ -232,7 +254,7 @@ dissCqN <- function(mat, q = 0:2, pairwise = FALSE, compare.sub = NULL,
   }
 
   # No. of assemblages
-  N <- sum(rowSums(m) > 0)
+  N <- if (!pairwise) sum(rowSums(m) > 0) else 2
 
   # Orders of dissimilarity
   q <- as.integer(round(q[q >= 0 & q <= max(2, N)]))
@@ -310,13 +332,13 @@ dissCqN <- function(mat, q = 0:2, pairwise = FALSE, compare.sub = NULL,
 
     # Function to calculate pairwise dissimilarity matrix
     dissMat <- function(q) {
-      d <- t(sapply(s1, function(i) {
+      d <- t(pSapply(s1, function(i) {
         sapply(s2, function(j) {
           m <- m[c(i, j), , drop = FALSE]
           m <- m[, colSums(m) > 0, drop = FALSE]
           dissCqN(q, m)
         })
-      }))
+      }, parallel, nc, cl))
       if (nrow(d) != length(s1)) d <- t(d)
       if (net2) {
         ind <- rep(n1, each = length(n2))
@@ -328,7 +350,7 @@ dissCqN <- function(mat, q = 0:2, pairwise = FALSE, compare.sub = NULL,
     }
 
     # Dissimilarity matrix or matrices
-    d <- pSapply(q, dissMat, parallel, nc, cl, simplify = FALSE)
+    d <- sapply(q, dissMat, simplify = FALSE)
     if (isList(d) && length(d) < 2) d <- d[[1]]
     return(d)
 

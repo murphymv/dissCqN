@@ -90,10 +90,33 @@ can be useful to help partition the different components of network
 dissimilarity, e.g. dissimilarity due to interaction 'rewiring' among
 shared species vs. that due to species turnover (Poisot \emph{et al.} 2012).
 }
+\examples{
+# Calculate CqN dissimilarity for orders q = 0:2
+
+# Load sample community data from SpadeR package (Chao et al. 2016)
+data(SimilarityMultData, package = "SpadeR")
+d <- SimilarityMultData$Abu
+
+# Dissimilarity
+(CqN <- dissCqN::dissCqN(t(d)))
+
+# Compare to empirical values from SpadeR::SimilarityMult()
+sim <- SpadeR::SimilarityMult(d, datatype = "abundance", nboot = 1)
+CqN_2 <- 1 - c(
+  "C0N" = sim$Empirical_richness["C0N(q=0,Sorensen)", "Estimate"],
+  "C1N" = sim$Empirical_relative["C1N=U1N(q=1,Horn)", "Estimate"],
+  "C2N" = sim$Empirical_relative["C2N(q=2,Morisita)", "Estimate"]
+)
+stopifnot(all.equal(CqN, CqN_2))
+}
 \references{
 Chao, A., Jost, L., Chiang, S. C., Jiang, Y.-H., & Chazdon, R. L.
 (2008). A Two-Stage Probabilistic Approach to Multiple-Community Similarity
 Indices. \emph{Biometrics}, \strong{64}(4), 1178–1186. \url{https://doi.org/fcvn63}
+
+Chao, A., Ma, K. H., Hsieh, T. C., & Chiu, C.-H. (2016). \emph{SpadeR:
+Species-Richness Prediction and Diversity Estimation with R}, R package
+version 0.1.1. \url{https://CRAN.R-project.org/package=SpadeR}
 
 Diserud, O. H., & Ødegaard, F. (2007). A multiple-site similarity measure.
 \emph{Biology Letters}, \strong{3}(1), 20–22. \url{https://doi.org/bwhfx6}
