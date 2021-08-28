@@ -25,7 +25,8 @@ library(dissCqN)
 data(BCI, package = "vegan")
 rownames(BCI) <- paste0("plot_", 1:nrow(BCI))
 knitr::kable(
-  BCI[sample(1:nrow(BCI), 5), sample(1:ncol(BCI), 5)]
+  BCI[sample(1:nrow(BCI), 5), 
+      sample(1:ncol(BCI), 5)]
 )
 ```
 
@@ -33,14 +34,17 @@ We can calculate multiple-assemblage dissimilarity for the forest plots for, say
 
 ```{r}
 q <- 0:6
-(BCI.diss.multi <- dissCqN(BCI, q))
+(BCI.diss.mult <- dissCqN(BCI, q))
 ```
 
 And plot a dissimilarity profile for *q* [@jostCompositionalSimilarityBeta2011]:
 
 ```{r}
-plot(q, BCI.diss.multi, ylab = "Dissimilarity")
-lines(q, BCI.diss.multi)
+bg <- "#303030"; fg <- "#cccccc"
+par(bg = bg, fg = fg)
+plot(q, BCI.diss.mult, xlab = expression(italic("q")), ylab = "Dissimilarity", 
+     col.axis = fg, col.lab = fg)
+lines(q, BCI.diss.mult)
 ```
 
 We can see that when only presence-absence of trees is considered (*q* = 0, or Sorensen dissimilarity), dissimilarity is very low (0.03) --- implying no major difference in species composition in the sampled assemblages. When tree abundance is taken into account however, dissimilarity steadily increases through the values of *q* as changes in relative abundance of common species have increasing influence on community difference (reaching \>0.99 for *q* = 6). Plotting such profiles can help to illustrate the dominance of common species in the community, with steeper increases associated with higher dominance. If under-sampling of the community is suspected to be an issue, dissimilarity for *q* \> 0 (and perhaps \> 1) is likely to be more reliable for assessing difference, as the common species are probably still sampled relatively accurately using the abundance-based measures.
