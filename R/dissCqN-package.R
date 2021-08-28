@@ -4,7 +4,6 @@
 #' @aliases dissCqN-package
 "_PACKAGE"
 #' @import parallel stats utils
-# #' @importFrom semEff isList isBoot isMod rMapply pSapply
 
 # The following block is used by usethis to automatically manage
 # roxygen namespace tags. Modify with care!

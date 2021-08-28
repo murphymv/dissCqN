@@ -82,12 +82,14 @@ rMapply <- function(FUN, ..., MoreArgs = NULL, SIMPLIFY = TRUE,
 #' @param add.obj A character vector of any additional object names to be
 #'   exported to the cluster. Use if a required object or function cannot be
 #'   found.
-#' @param ... Additional arguments to [parSapply()], [mcmapply()], or
-#'   [sapply()] (note: arguments `"simplify"` and `"SIMPLIFY"` are both allowed).
+#' @param ... Additional arguments to [parSapply()],
+#'   [`mcmapply()`](https://rdrr.io/r/parallel/unix/mclapply.html), or
+#'   [sapply()] (note: arguments `"simplify"` and `"SIMPLIFY"` are both
+#'   allowed).
 #' @details This is a wrapper for [parallel::parSapply()] (`"snow"`) or
-#'   [parallel::mcmapply()] (`"multicore"`), enabling (potentially) faster
-#'   processing of a function over a vector of objects. If `parallel = "no"`,
-#'   [sapply()] is used instead.
+#'   [`parallel::mcmapply()`](https://rdrr.io/r/parallel/unix/mclapply.html)
+#'   (`"multicore"`), enabling (potentially) faster processing of a function
+#'   over a vector of objects. If `parallel = "no"`, [sapply()] is used instead.
 #'
 #'   Parallel processing via option `"snow"` (default) is carried out using a
 #'   cluster of workers, which is automatically set up via [makeCluster()] using

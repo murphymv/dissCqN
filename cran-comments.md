@@ -16,7 +16,15 @@ This is a first minor release (0.1.0).
 
 #### NOTES:
 
+    New submission
 
+    Possibly misspelled words in DESCRIPTION:
+      CqN (8:6)
+      Jost (8:11)
+      al (8:19)
+      et (8:16)
+
+Words are not misspelled (technical terms and author names etc.).
 
 ### Downstream dependencies
 

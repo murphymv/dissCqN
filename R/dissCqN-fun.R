@@ -187,18 +187,14 @@ intMat <- function(net, shared.spp = FALSE, ...) {
 #'   matrix (or list of matrices), for the orders of `q`.
 #' @references Chao, A., Jost, L., Chiang, S. C., Jiang, Y.-H., & Chazdon, R. L.
 #'   (2008). A Two-Stage Probabilistic Approach to Multiple-Community Similarity
-#'   Indices. *Biometrics*, **64**(4), 1178–1186. <https://doi.org/fcvn63>
-#'
-#'   Chao, A., Ma, K. H., Hsieh, T. C., & Chiu, C.-H. (2016). *SpadeR:
-#'   Species-Richness Prediction and Diversity Estimation with R*, R package
-#'   version 0.1.1. <https://CRAN.R-project.org/package=SpadeR>
+#'   Indices. *Biometrics*, **64**(4), 1178–1186. \doi{10/fcvn63}
 #'
 #'   Diserud, O. H., & Ødegaard, F. (2007). A multiple-site similarity measure.
-#'   *Biology Letters*, **3**(1), 20–22. <https://doi.org/bwhfx6>
+#'   *Biology Letters*, **3**(1), 20–22. \doi{10/bwhfx6}
 #'
 #'   Horn, H. S. (1966). Measurement of “Overlap” in Comparative Ecological
 #'   Studies. *The American Naturalist*, **100**(914), 419–424.
-#'   <https://doi.org/10/b62ct5>
+#'   \doi{10/b62ct5}
 #'
 #'   Jost, L., Chao, A., & Chazdon, R. L. (2011). Compositional similarity and
 #'   beta diversity. In A. E. Magurran & B. J. McGill (Eds.), *Biological
@@ -211,23 +207,21 @@ intMat <- function(net, shared.spp = FALSE, ...) {
 #'
 #'   Poisot, T., Canard, E., Mouillot, D., Mouquet, N., & Gravel, D. (2012). The
 #'   dissimilarity of species interaction networks. *Ecology Letters*,
-#'   **15**(12), 1353–1361. <https://doi.org/10/f4dv37>
+#'   **15**(12), 1353–1361. \doi{10/f4dv37}
 #'
 #'   Sørensen, T. (1948). A method of establishing groups of equal amplitude in
 #'   plant sociology based on similarity of species and its application to
 #'   analyses of the vegetation on Danish commons. *Kongelige Danske
 #'   Videnskabernes Selskabs Biologiske Skrifter*, **5**, 1–34.
 #' @examples
-#' # Calculate CqN dissimilarity for orders q = 0:2
-#'
-#' # Load sample community data from SpadeR package (Chao et al. 2016)
+#' # Sample community data from SpadeR package (three assemblages, 120 species)
 #' data(SimilarityMultData, package = "SpadeR")
 #' d <- SimilarityMultData$Abu
 #'
-#' # Dissimilarity
+#' # Multiple-assemblage dissimilarity for q = 0:2
 #' (CqN <- dissCqN::dissCqN(t(d)))
 #'
-#' # Compare to empirical values from SpadeR::SimilarityMult()
+#' # Compare to empirical CqN values from SpadeR::SimilarityMult()
 #' sim <- SpadeR::SimilarityMult(d, datatype = "abundance", nboot = 1)
 #' CqN_2 <- 1 - c(
 #'   "C0N" = sim$Empirical_richness["C0N(q=0,Sorensen)", "Estimate"],
@@ -235,6 +229,9 @@ intMat <- function(net, shared.spp = FALSE, ...) {
 #'   "C2N" = sim$Empirical_relative["C2N(q=2,Morisita)", "Estimate"]
 #' )
 #' stopifnot(all.equal(CqN, CqN_2))
+#'
+#' # Pairwise dissimilarity matrices
+#' dissCqN::dissCqN(t(d), pairwise = TRUE)
 #' @export
 dissCqN <- function(mat, q = 0:2, pairwise = FALSE, compare.sub = NULL,
                     shared.spp = FALSE, parallel = "no", ncpus = NULL,
