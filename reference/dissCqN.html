@@ -229,15 +229,12 @@ shared species vs. that due to species turnover (Poisot <em>et al.</em> 2012).</
 
     <p>Chao, A., Jost, L., Chiang, S. C., Jiang, Y.-H., &amp; Chazdon, R. L.
 (2008). A Two-Stage Probabilistic Approach to Multiple-Community Similarity
-Indices. <em>Biometrics</em>, <strong>64</strong>(4), 1178–1186. <a href='https://doi.org/fcvn63'>https://doi.org/fcvn63</a></p>
-<p>Chao, A., Ma, K. H., Hsieh, T. C., &amp; Chiu, C.-H. (2016). <em>SpadeR:
-Species-Richness Prediction and Diversity Estimation with R</em>, R package
-version 0.1.1. <a href='https://CRAN.R-project.org/package=SpadeR'>https://CRAN.R-project.org/package=SpadeR</a></p>
+Indices. <em>Biometrics</em>, <strong>64</strong>(4), 1178–1186. doi: <a href='https://doi.org/10/fcvn63'>10/fcvn63</a></p>
 <p>Diserud, O. H., &amp; Ødegaard, F. (2007). A multiple-site similarity measure.
-<em>Biology Letters</em>, <strong>3</strong>(1), 20–22. <a href='https://doi.org/bwhfx6'>https://doi.org/bwhfx6</a></p>
+<em>Biology Letters</em>, <strong>3</strong>(1), 20–22. doi: <a href='https://doi.org/10/bwhfx6'>10/bwhfx6</a></p>
 <p>Horn, H. S. (1966). Measurement of “Overlap” in Comparative Ecological
 Studies. <em>The American Naturalist</em>, <strong>100</strong>(914), 419–424.
-<a href='https://doi.org/10/b62ct5'>https://doi.org/10/b62ct5</a></p>
+doi: <a href='https://doi.org/10/b62ct5'>10/b62ct5</a></p>
 <p>Jost, L., Chao, A., &amp; Chazdon, R. L. (2011). Compositional similarity and
 beta diversity. In A. E. Magurran &amp; B. J. McGill (Eds.), <em>Biological
 Diversity: Frontiers in Measurement and Assessment</em> (pp. 66–84). Oxford
@@ -247,24 +244,22 @@ between communities. <em>Memoirs of the Faculty of Science, Kyushu Univ.,
 Series E (Biology)</em>, <strong>3</strong>, 65–80.</p>
 <p>Poisot, T., Canard, E., Mouillot, D., Mouquet, N., &amp; Gravel, D. (2012). The
 dissimilarity of species interaction networks. <em>Ecology Letters</em>,
-<strong>15</strong>(12), 1353–1361. <a href='https://doi.org/10/f4dv37'>https://doi.org/10/f4dv37</a></p>
+<strong>15</strong>(12), 1353–1361. doi: <a href='https://doi.org/10/f4dv37'>10/f4dv37</a></p>
 <p>Sørensen, T. (1948). A method of establishing groups of equal amplitude in
 plant sociology based on similarity of species and its application to
 analyses of the vegetation on Danish commons. <em>Kongelige Danske
 Videnskabernes Selskabs Biologiske Skrifter</em>, <strong>5</strong>, 1–34.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Calculate CqN dissimilarity for orders q = 0:2</span>
-
-<span class='co'># Load sample community data from SpadeR package (Chao et al. 2016)</span>
+    <pre class="examples"><div class='input'><span class='co'># Sample community data from SpadeR package (three assemblages, 120 species)</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>SimilarityMultData</span>, package <span class='op'>=</span> <span class='st'>"SpadeR"</span><span class='op'>)</span>
 <span class='va'>d</span> <span class='op'>&lt;-</span> <span class='va'>SimilarityMultData</span><span class='op'>$</span><span class='va'>Abu</span>
 
-<span class='co'># Dissimilarity</span>
+<span class='co'># Multiple-assemblage dissimilarity for q = 0:2</span>
 <span class='op'>(</span><span class='va'>CqN</span> <span class='op'>&lt;-</span> <span class='fu'>dissCqN</span><span class='fu'>::</span><span class='fu'>dissCqN</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span><span class='op'>(</span><span class='va'>d</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;       C0N       C1N       C2N 
 #&gt; 0.3411215 0.3479117 0.4198004 </div><div class='input'>
-<span class='co'># Compare to empirical values from SpadeR::SimilarityMult()</span>
+<span class='co'># Compare to empirical CqN values from SpadeR::SimilarityMult()</span>
 <span class='va'>sim</span> <span class='op'>&lt;-</span> <span class='fu'>SpadeR</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/SpadeR/man/SimilarityMult.html'>SimilarityMult</a></span><span class='op'>(</span><span class='va'>d</span>, datatype <span class='op'>=</span> <span class='st'>"abundance"</span>, nboot <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
 <span class='va'>CqN_2</span> <span class='op'>&lt;-</span> <span class='fl'>1</span> <span class='op'>-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
   <span class='st'>"C0N"</span> <span class='op'>=</span> <span class='va'>sim</span><span class='op'>$</span><span class='va'>Empirical_richness</span><span class='op'>[</span><span class='st'>"C0N(q=0,Sorensen)"</span>, <span class='st'>"Estimate"</span><span class='op'>]</span>,
@@ -272,7 +267,27 @@ Videnskabernes Selskabs Biologiske Skrifter</em>, <strong>5</strong>, 1–34.</p
   <span class='st'>"C2N"</span> <span class='op'>=</span> <span class='va'>sim</span><span class='op'>$</span><span class='va'>Empirical_relative</span><span class='op'>[</span><span class='st'>"C2N(q=2,Morisita)"</span>, <span class='st'>"Estimate"</span><span class='op'>]</span>
 <span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span><span class='op'>(</span><span class='va'>CqN</span>, <span class='va'>CqN_2</span><span class='op'>)</span><span class='op'>)</span>
-</div></pre>
+
+<span class='co'># Pairwise dissimilarity matrices</span>
+<span class='fu'>dissCqN</span><span class='fu'>::</span><span class='fu'>dissCqN</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span><span class='op'>(</span><span class='va'>d</span><span class='op'>)</span>, pairwise <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $C0N
+#&gt;           V1        V2        V3
+#&gt; V1 0.0000000 0.3099415 0.5357143
+#&gt; V2 0.3099415 0.0000000 0.5586207
+#&gt; V3 0.5357143 0.5586207 0.0000000
+#&gt; 
+#&gt; $C1N
+#&gt;           V1        V2        V3
+#&gt; V1 0.0000000 0.3193235 0.4497502
+#&gt; V2 0.3193235 0.0000000 0.4222305
+#&gt; V3 0.4497502 0.4222305 0.0000000
+#&gt; 
+#&gt; $C2N
+#&gt;           V1        V2        V3
+#&gt; V1 0.0000000 0.5413686 0.2558286
+#&gt; V2 0.5413686 0.0000000 0.5546613
+#&gt; V3 0.2558286 0.5546613 0.0000000
+#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

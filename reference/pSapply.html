@@ -170,8 +170,10 @@ found.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Additional arguments to <code>parSapply()</code>, <code>mcmapply()</code>, or
-<code><a href='https://rdrr.io/r/base/lapply.html'>sapply()</a></code> (note: arguments <code>"simplify"</code> and <code>"SIMPLIFY"</code> are both allowed).</p></td>
+      <td><p>Additional arguments to <code>parSapply()</code>,
+<a href='https://rdrr.io/r/parallel/unix/mclapply.html'><code>mcmapply()</code></a>, or
+<code><a href='https://rdrr.io/r/base/lapply.html'>sapply()</a></code> (note: arguments <code>"simplify"</code> and <code>"SIMPLIFY"</code> are both
+allowed).</p></td>
     </tr>
     </table>
 
@@ -181,9 +183,9 @@ found.</p></td>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>This is a wrapper for <code><a href='https://rdrr.io/r/parallel/clusterApply.html'>parallel::parSapply()</a></code> (<code>"snow"</code>) or
-<code><a href='https://rdrr.io/r/parallel/mclapply.html'>parallel::mcmapply()</a></code> (<code>"multicore"</code>), enabling (potentially) faster
-processing of a function over a vector of objects. If <code>parallel = "no"</code>,
-<code><a href='https://rdrr.io/r/base/lapply.html'>sapply()</a></code> is used instead.</p>
+<a href='https://rdrr.io/r/parallel/unix/mclapply.html'><code><a href='https://rdrr.io/r/parallel/mclapply.html'>parallel::mcmapply()</a></code></a>
+(<code>"multicore"</code>), enabling (potentially) faster processing of a function
+over a vector of objects. If <code>parallel = "no"</code>, <code><a href='https://rdrr.io/r/base/lapply.html'>sapply()</a></code> is used instead.</p>
 <p>Parallel processing via option <code>"snow"</code> (default) is carried out using a
 cluster of workers, which is automatically set up via <code>makeCluster()</code> using
 all available system cores or a user supplied number of cores. The function
