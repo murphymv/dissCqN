@@ -30,9 +30,10 @@ errors/confidence intervals — the main advantage of `dissCqN` is it’s
 simplicity and speed, when only the original empirical C<sub>*qN*</sub>
 measures are required (and also if dissimilarity is preferred to
 similarity). Everything can be accomplished using a single function,
-`dissCqN::dissCqN()`, which takes a matrix of assemblages x species as
-it’s first argument (or even a list of species interaction matrices, if
-network dissimilarity is of interest).
+[`dissCqN::dissCqN()`](https://murphymv.github.io/dissCqN/reference/dissCqN.html),
+which takes a matrix of assemblages x species as it’s first argument (or
+even a list of species interaction matrices, if network dissimilarity is
+of interest).
 
 ## Installation
 
