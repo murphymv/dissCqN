@@ -40,14 +40,13 @@ q <- 0:6
 And plot a dissimilarity profile for *q* [@jostCompositionalSimilarityBeta2011]:
 
 ```{r}
-bg <- "#303030"; fg <- "#cccccc"
-par(bg = bg, fg = fg)
+par(bg = "#303030", fg = "#cccccc")  # dark plot scheme
 plot(q, BCI.diss.mult, xlab = expression(italic("q")), ylab = "Dissimilarity", 
-     col.axis = fg, col.lab = fg)
+     col.axis = "#cccccc", col.lab = "#cccccc")
 lines(q, BCI.diss.mult)
 ```
 
-We can see that when only presence-absence of trees is considered (*q* = 0, or Sorensen dissimilarity), dissimilarity is very low (0.03) --- implying no major difference in species composition in the sampled assemblages. When tree abundance is taken into account however, dissimilarity steadily increases through the values of *q* as changes in relative abundance of common species have increasing influence on community difference (reaching \>0.99 for *q* = 6). Plotting such profiles can help to illustrate the dominance of common species in the community, with steeper increases associated with higher dominance. If under-sampling of the community is suspected to be an issue, dissimilarity for *q* \> 0 (and perhaps \> 1) is likely to be more reliable for assessing difference, as the common species are probably still sampled relatively accurately using the abundance-based measures.
+We can see that when only presence-absence of trees is considered (*q* = 0, or Sorensen dissimilarity), dissimilarity is very low (0.03) --- implying no major difference in species composition in the sampled assemblages. When tree abundance is taken into account however, dissimilarity steadily increases through the values of *q* as changes in relative abundance of common species have increasing influence on community difference (reaching \>0.99 for *q* = 6). Plotting such profiles can help to illustrate the dominance of common species in the community, with steeper increases associated with higher dominance. If under-sampling of the community is suspected, dissimilarity for *q* \> 0 (and perhaps \> 1) is likely to be more reliable for assessing difference, as the common species are probably still sampled relatively accurately using the abundance-based measures.
 
 What about pairwise dissimilarity? Simply set `pairwise = TRUE`:
 
@@ -60,8 +59,7 @@ system.time(
 This generates a symmetrical pairwise dissimilarity matrix for each value of q, returned in a list:
 
 ```{r}
-# for q = 0:2:
-lapply(BCI.diss.pair[1:3], function(i) i[1:5, 1:5])
+lapply(BCI.diss.pair[1:3], function(i) i[1:5, 1:5])  # for q = 0:2
 ```
 
 Note that another way to assess overall dissimilarity might be to take the means of these pairwise matrices (omitting self-comparisons):

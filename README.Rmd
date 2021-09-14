@@ -17,11 +17,13 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/murphymv/dissCqN/workflows/R-CMD-check/badge.svg)](https://github.com/murphymv/dissCqN/actions)
+[![Repo Status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/) [![Lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg?label=Lifecycle)](https://lifecycle.r-lib.org/articles/stages.html) [![Licence](https://img.shields.io/badge/License-GPL3-green.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html) ![GitHub language count](https://img.shields.io/github/languages/count/murphymv/dissCqN?label=Languages) [![Codecov test coverage](https://codecov.io/gh/murphymv/dissCqN/branch/main/graph/badge.svg)](https://codecov.io/gh/murphymv/dissCqN?branch=main) [![R-CMD-check](https://github.com/murphymv/dissCqN/workflows/R-CMD-check/badge.svg)](https://github.com/murphymv/dissCqN/actions)
+
+[![Donate](https://img.shields.io/badge/PayPal-Donate%20to%20Author-yellow.svg)](https://paypal.me/murphymv1)
 
 <!-- badges: end -->
 
-`dissCqN` is a small package designed to make the process of calculating multiple or pairwise assemblage dissimilarity via the C*qN* generalisation of similarity indices (Chao et al. 2008, Jost *et al.* 2011) relatively straightforward and fast. Although C*qN* can also be calculated using the `SpadeR` package (e.g. [`SpadeR::SimilarityMult()`](https://rdrr.io/cran/SpadeR/man/SimilarityMult.html) and [`SpadeR::SimilarityPair()`](https://rdrr.io/cran/SpadeR/man/SimilarityPair.html)) — which generates a more comprehensive set of measures and also standard errors/confidence intervals — the main advantage of `dissCqN` is it's simplicity and speed, when only the original empirical C*qN* measures are required (and also if dissimilarity is preferred to similarity). Everything can be accomplished using a single function, `dissCqN::dissCqN()`, which takes a matrix of assemblages x species as it's first argument (or even a list of species interaction matrices, if network dissimilarity is of interest).
+`dissCqN` is a small package designed to make the process of calculating multiple or pairwise assemblage dissimilarity via the C<sub>*qN*</sub> generalisation of similarity indices (Chao *et al.* 2008, Jost *et al.* 2011) relatively straightforward and fast. Although C<sub>*qN*</sub> can also be calculated using the `SpadeR` package (e.g. [`SpadeR::SimilarityMult()`](https://rdrr.io/cran/SpadeR/man/SimilarityMult.html) and [`SpadeR::SimilarityPair()`](https://rdrr.io/cran/SpadeR/man/SimilarityPair.html)) — which generates a more comprehensive set of measures and also standard errors/confidence intervals — the main advantage of `dissCqN` is it's simplicity and speed, when only the original empirical C<sub>*qN*</sub> measures are required (and also if dissimilarity is preferred to similarity). Everything can be accomplished using a single function, `dissCqN::dissCqN()`, which takes a matrix of assemblages x species as it's first argument (or even a list of species interaction matrices, if network dissimilarity is of interest).
 
 ## Installation
 
