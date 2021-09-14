@@ -14,8 +14,8 @@
 <script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
 <meta property="og:title" content="Multiple Assemblage Dissimilarity for Orders q = 0-N">
 <meta property="og:description" content="Calculate multiple or pairwise dissimilarity for orders q = 0-N 
-    (CqN) for a set of species assemblages or interaction networks. See Jost et 
-    al. (2011, in ISBN:978-0-19-958067-5).">
+    (CqN; Chao et al. 2008 &lt;doi:10/fcvn63&gt;) for a set of species assemblages or 
+    interaction networks.">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -82,7 +82,7 @@
 
 
 <!-- badges: end -->
-<p><code>dissCqN</code> is a small package designed to make the process of calculating multiple or pairwise assemblage dissimilarity via the C<sub><em>qN</em></sub> generalisation of similarity indices (Chao <em>et al.</em> 2008, Jost <em>et al.</em> 2011) relatively straightforward and fast. Although C<sub><em>qN</em></sub> can also be calculated using the <code>SpadeR</code> package (e.g. <a href="https://rdrr.io/cran/SpadeR/man/SimilarityMult.html"><code>SpadeR::SimilarityMult()</code></a> and <a href="https://rdrr.io/cran/SpadeR/man/SimilarityPair.html"><code>SpadeR::SimilarityPair()</code></a>) — which generates a more comprehensive set of measures and also standard errors/confidence intervals — the main advantage of <code>dissCqN</code> is it’s simplicity and speed, when only the original empirical C<sub><em>qN</em></sub> measures are required (and also if dissimilarity is preferred to similarity). Everything can be accomplished using a single function, <code><a href="reference/dissCqN.html">dissCqN::dissCqN()</a></code>, which takes a matrix of assemblages x species as it’s first argument (or even a list of species interaction matrices, if network dissimilarity is of interest).</p>
+<p><code>dissCqN</code> is a small package designed to make the process of calculating multiple or pairwise assemblage dissimilarity via the C<sub><em>qN</em></sub> generalisation of similarity indices (Chao <em>et al.</em> 2008, Jost <em>et al.</em> 2011) relatively straightforward and fast. Although C<sub><em>qN</em></sub> can also be calculated using the <code>SpadeR</code> package (e.g. <a href="https://rdrr.io/cran/SpadeR/man/SimilarityMult.html"><code>SpadeR::SimilarityMult()</code></a> and <a href="https://rdrr.io/cran/SpadeR/man/SimilarityPair.html"><code>SpadeR::SimilarityPair()</code></a>) — which generates a more comprehensive set of measures and also standard errors/confidence intervals — the main advantage of <code>dissCqN</code> is it’s simplicity and speed, when only the original empirical C<sub><em>qN</em></sub> measures are required (and also if dissimilarity is preferred to similarity). Everything can be accomplished using a single function, <a href="https://murphymv.github.io/dissCqN/reference/dissCqN.html"><code>dissCqN::dissCqN()</code></a>, which takes a matrix of assemblages x species as it’s first argument (or even a list of species interaction matrices, if network dissimilarity is of interest).</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
