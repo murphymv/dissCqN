@@ -30,7 +30,7 @@ errors/confidence intervals — the main advantage of `dissCqN` is it’s
 simplicity and speed, when only the original empirical C<sub>*qN*</sub>
 measures are required (and also if dissimilarity is preferred to
 similarity). Everything can be accomplished using a single function,
-[`dissCqN::dissCqN()`](https://murphymv.github.io/dissCqN/reference/dissCqN.html),
+[`dissCqN()`](https://murphymv.github.io/dissCqN/reference/dissCqN.html),
 which takes a matrix of assemblages x species as it’s first argument (or
 even a list of species interaction matrices, if network dissimilarity is
 of interest).
@@ -44,16 +44,19 @@ You can install the released version of `dissCqN` from
 install.packages("dissCqN")
 ```
 
-And the development version with:
+And the development version from [GitHub](https://github.com/) with:
 
 ``` r
 devtools::install_github("murphymv/dissCqN@dev")
 ```
 
-## Example
+## Examples
 
-See [here](https://murphymv.github.io/dissCqN/articles/dissCqN.html) for
-examples and further details.
+See here for a demonstration:
+
+-   [Calculating multiple and pairwise assemblage dissimilarity for tree
+    species in a tropical
+    forest](https://murphymv.github.io/dissCqN/articles/dissCqN.html)
 
 ## References
 

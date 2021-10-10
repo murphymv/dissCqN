@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
-`dissCqN` is a small package designed to make the process of calculating multiple or pairwise assemblage dissimilarity via the C<sub>*qN*</sub> generalisation of similarity indices (Chao *et al.* 2008, Jost *et al.* 2011) relatively straightforward and fast. Although C<sub>*qN*</sub> can also be calculated using the `SpadeR` package (e.g. [`SpadeR::SimilarityMult()`](https://rdrr.io/cran/SpadeR/man/SimilarityMult.html) and [`SpadeR::SimilarityPair()`](https://rdrr.io/cran/SpadeR/man/SimilarityPair.html)) — which generates a more comprehensive set of measures and also standard errors/confidence intervals — the main advantage of `dissCqN` is it's simplicity and speed, when only the original empirical C<sub>*qN*</sub> measures are required (and also if dissimilarity is preferred to similarity). Everything can be accomplished using a single function, [`dissCqN::dissCqN()`](https://murphymv.github.io/dissCqN/reference/dissCqN.html), which takes a matrix of assemblages x species as it's first argument (or even a list of species interaction matrices, if network dissimilarity is of interest).
+`dissCqN` is a small package designed to make the process of calculating multiple or pairwise assemblage dissimilarity via the C<sub>*qN*</sub> generalisation of similarity indices (Chao *et al.* 2008, Jost *et al.* 2011) relatively straightforward and fast. Although C<sub>*qN*</sub> can also be calculated using the `SpadeR` package (e.g. [`SpadeR::SimilarityMult()`](https://rdrr.io/cran/SpadeR/man/SimilarityMult.html) and [`SpadeR::SimilarityPair()`](https://rdrr.io/cran/SpadeR/man/SimilarityPair.html)) — which generates a more comprehensive set of measures and also standard errors/confidence intervals — the main advantage of `dissCqN` is it's simplicity and speed, when only the original empirical C<sub>*qN*</sub> measures are required (and also if dissimilarity is preferred to similarity). Everything can be accomplished using a single function, [`dissCqN()`](https://murphymv.github.io/dissCqN/reference/dissCqN.html), which takes a matrix of assemblages x species as it's first argument (or even a list of species interaction matrices, if network dissimilarity is of interest).
 
 ## Installation
 
@@ -33,15 +33,17 @@ You can install the released version of `dissCqN` from [CRAN](https://CRAN.R-pro
 install.packages("dissCqN")
 ```
 
-And the development version with:
+And the development version from [GitHub](https://github.com/) with:
 
 ``` r
 devtools::install_github("murphymv/dissCqN@dev")
 ```
 
-## Example
+## Examples
 
-See [here](https://murphymv.github.io/dissCqN/articles/dissCqN.html) for examples and further details.
+See here for a demonstration:
+
+-   [Calculating multiple and pairwise assemblage dissimilarity for tree species in a tropical forest](https://murphymv.github.io/dissCqN/articles/dissCqN.html)
 
 ## References
 

@@ -6,11 +6,14 @@ This is a first minor release (0.1.0).
 
 ### Test environments
 
--   Windows 10 Home 21H1, R 4.1.1 (local)
--   Mac OS X 10.15.7, R 4.1.1 (GitHub Actions)
--   Windows Server 2008 R2 SP1, R-devel, 32/64 bit (R-hub builder)
--   Ubuntu Linux 20.04.1 LTS, R-release, GCC (R-hub builder)
--   Fedora Linux, R-devel, clang, gfortran (R-hub builder)
+| System                                    | Source                  | R version  |
+|-------------------------------------------|-------------------------|------------|
+| Windows 10 Home 21H1                      | Local                   | R 4.1.1    |
+| Windows Server 2019 10.0.17763 Datacenter | Remote (GitHub Actions) | R-release  |
+| Mac OS X 10.15.7 19H1417                  | Remote (GitHub Actions) | R-release  |
+| Ubuntu 20.04.3 LTS                        | Remote (GitHub Actions) | R-devel    |
+| Ubuntu 20.04.3 LTS                        | Remote (GitHub Actions) | R-release  |
+| Ubuntu 20.04.3 LTS                        | Remote (GitHub Actions) | R-oldrel-1 |
 
 ### R CMD check results
 
@@ -19,8 +22,8 @@ This is a first minor release (0.1.0).
     New submission
 
     Possibly misspelled words in DESCRIPTION:
+      Chao (8:11)
       CqN (8:6)
-      Jost (8:11)
       al (8:19)
       et (8:16)
 
