@@ -43,7 +43,7 @@ devtools::install_github("murphymv/dissCqN@dev")
 
 ## Examples
 
-See the folllowing vignette for a demonstration:
+See the following vignette for a demonstration:
 
 -   [Calculating multiple and pairwise assemblage dissimilarity for tree species in a tropical forest](https://murphymv.github.io/dissCqN/articles/dissCqN.html)
 
