@@ -13,6 +13,8 @@ Status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repost
 count](https://img.shields.io/github/languages/count/murphymv/dissCqN?label=Languages)
 [![R-CMD-check](https://github.com/murphymv/dissCqN/workflows/R-CMD-check/badge.svg)](https://github.com/murphymv/dissCqN/actions)
 
+[![CRAN](https://www.r-pkg.org/badges/version/dissCqN?color=blue)](https://CRAN.R-project.org/package=dissCqN)
+
 [![Donate](https://img.shields.io/badge/PayPal-Donate%20to%20Author-yellow.svg)](https://paypal.me/murphymv1)
 
 <!-- badges: end -->
@@ -32,8 +34,7 @@ measures are required (and also if dissimilarity is preferred to
 similarity). Everything can be accomplished using a single function,
 [`dissCqN()`](https://murphymv.github.io/dissCqN/reference/dissCqN.html),
 which takes a matrix of assemblages x species as it’s first argument (or
-even a list of species interaction matrices, if network dissimilarity is
-of interest).
+a list of species interaction matrices, for network dissimilarity).
 
 ## Installation
 
@@ -52,7 +53,7 @@ devtools::install_github("murphymv/dissCqN@dev")
 
 ## Examples
 
-See here for a demonstration:
+See the folllowing vignette for a demonstration:
 
 -   [Calculating multiple and pairwise assemblage dissimilarity for tree
     species in a tropical
