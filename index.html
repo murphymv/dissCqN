@@ -81,8 +81,9 @@
 <!-- badges: start -->
 
 
+
 <!-- badges: end -->
-<p><code>dissCqN</code> is a small package designed to make the process of calculating multiple or pairwise assemblage dissimilarity via the C<sub><em>qN</em></sub> generalisation of similarity indices (Chao <em>et al.</em> 2008, Jost <em>et al.</em> 2011) relatively straightforward and fast. Although C<sub><em>qN</em></sub> can also be calculated using the <code>SpadeR</code> package (e.g. <a href="https://rdrr.io/cran/SpadeR/man/SimilarityMult.html"><code>SpadeR::SimilarityMult()</code></a> and <a href="https://rdrr.io/cran/SpadeR/man/SimilarityPair.html"><code>SpadeR::SimilarityPair()</code></a>) — which generates a more comprehensive set of measures and also standard errors/confidence intervals — the main advantage of <code>dissCqN</code> is it’s simplicity and speed, when only the original empirical C<sub><em>qN</em></sub> measures are required (and also if dissimilarity is preferred to similarity). Everything can be accomplished using a single function, <a href="https://murphymv.github.io/dissCqN/reference/dissCqN.html"><code>dissCqN()</code></a>, which takes a matrix of assemblages x species as it’s first argument (or even a list of species interaction matrices, if network dissimilarity is of interest).</p>
+<p><code>dissCqN</code> is a small package designed to make the process of calculating multiple or pairwise assemblage dissimilarity via the C<sub><em>qN</em></sub> generalisation of similarity indices (Chao <em>et al.</em> 2008, Jost <em>et al.</em> 2011) relatively straightforward and fast. Although C<sub><em>qN</em></sub> can also be calculated using the <code>SpadeR</code> package (e.g. <a href="https://rdrr.io/cran/SpadeR/man/SimilarityMult.html"><code>SpadeR::SimilarityMult()</code></a> and <a href="https://rdrr.io/cran/SpadeR/man/SimilarityPair.html"><code>SpadeR::SimilarityPair()</code></a>) — which generates a more comprehensive set of measures and also standard errors/confidence intervals — the main advantage of <code>dissCqN</code> is it’s simplicity and speed, when only the original empirical C<sub><em>qN</em></sub> measures are required (and also if dissimilarity is preferred to similarity). Everything can be accomplished using a single function, <a href="https://murphymv.github.io/dissCqN/reference/dissCqN.html"><code>dissCqN()</code></a>, which takes a matrix of assemblages x species as it’s first argument (or a list of species interaction matrices, for network dissimilarity).</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -96,7 +97,7 @@
 <div id="examples" class="section level2">
 <h2 class="hasAnchor">
 <a href="#examples" class="anchor"></a>Examples</h2>
-<p>See here for a demonstration:</p>
+<p>See the folllowing vignette for a demonstration:</p>
 <ul>
 <li><a href="https://murphymv.github.io/dissCqN/articles/dissCqN.html">Calculating multiple and pairwise assemblage dissimilarity for tree species in a tropical forest</a></li>
 </ul>
@@ -141,6 +142,7 @@
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg?label=Lifecycle" alt="Lifecycle"></a></li>
 <li><a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://img.shields.io/badge/License-GPL3-green.svg" alt="Licence"></a></li>
 <li><a href="https://github.com/murphymv/dissCqN/actions"><img src="https://github.com/murphymv/dissCqN/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://CRAN.R-project.org/package=dissCqN"><img src="https://www.r-pkg.org/badges/version/dissCqN?color=blue" alt="CRAN"></a></li>
 <li><a href="https://paypal.me/murphymv1"><img src="https://img.shields.io/badge/PayPal-Donate%20to%20Author-yellow.svg" alt="Donate"></a></li>
 </ul>
 </div>
