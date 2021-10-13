@@ -38,7 +38,7 @@ more than two sets are supplied, only the first two are used. If \code{NULL}
 (if \code{mat} is a list of networks).}
 
 \item{parallel}{The type of parallel processing to use, if any. Can be one of
-\code{"snow"}, \code{"multicore"}, or \code{"no"} (for none — the default). Passed to
+\code{"snow"}, \code{"multicore"}, or \code{"no"} (for none – the default). Passed to
 \code{\link[=pSapply]{pSapply()}}.}
 
 \item{ncpus}{Number of system cores to use for parallel processing. If \code{NULL}

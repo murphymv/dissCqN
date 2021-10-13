@@ -27,8 +27,8 @@ also be calculated using the `SpadeR` package
 (e.g. [`SpadeR::SimilarityMult()`](https://rdrr.io/cran/SpadeR/man/SimilarityMult.html)
 and
 [`SpadeR::SimilarityPair()`](https://rdrr.io/cran/SpadeR/man/SimilarityPair.html))
-— which generates a more comprehensive set of measures and also standard
-errors/confidence intervals — the main advantage of `dissCqN` is it’s
+– which generates a more comprehensive set of measures and also standard
+errors/confidence intervals – the main advantage of `dissCqN` is it’s
 simplicity and speed, when only the original empirical C<sub>*qN*</sub>
 measures are required (and also if dissimilarity is preferred to
 similarity). Everything can be accomplished using a single function,
