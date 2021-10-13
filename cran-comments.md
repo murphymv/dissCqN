@@ -17,17 +17,7 @@ This is a first minor release (0.1.0).
 
 ### R CMD check results
 
-#### NOTES:
-
-    New submission
-
-    Possibly misspelled words in DESCRIPTION:
-      Chao (8:11)
-      CqN (8:6)
-      al (8:19)
-      et (8:16)
-
-Words are not misspelled (technical terms and author names etc.).
+There were no ERRORs, WARNINGs or NOTEs.
 
 ### Downstream dependencies
 
