@@ -14,6 +14,9 @@ count](https://img.shields.io/github/languages/count/murphymv/dissCqN?label=Lang
 [![R-CMD-check](https://github.com/murphymv/dissCqN/workflows/R-CMD-check/badge.svg)](https://github.com/murphymv/dissCqN/actions)
 
 [![CRAN](https://www.r-pkg.org/badges/version/dissCqN?color=blue)](https://CRAN.R-project.org/package=dissCqN)
+![Downloads:
+Total](http://cranlogs.r-pkg.org/badges/grand-total/dissCqN)
+![Downloads: Monthly](https://cranlogs.r-pkg.org/badges/dissCqN)
 
 [![Donate](https://img.shields.io/badge/PayPal-Donate%20to%20Author-yellow.svg)](https://paypal.me/murphymv1)
 
@@ -31,7 +34,7 @@ and
 errors/confidence intervals – the main advantage of `dissCqN` is it’s
 simplicity and speed, when only the original empirical C<sub>*qN*</sub>
 measures are required (and also if dissimilarity is preferred to
-similarity). Everything can be accomplished using a single function,
+similarity). Everything can be accomplished with a single function,
 [`dissCqN()`](https://murphymv.github.io/dissCqN/reference/dissCqN.html),
 which takes a matrix of assemblages x species as it’s first argument (or
 a list of species interaction matrices, for network dissimilarity).
