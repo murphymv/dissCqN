@@ -46,20 +46,20 @@ plot(q, BCI.diss.mult, xlab = expression(italic("q")), ylab = "Dissimilarity",
 lines(q, BCI.diss.mult)
 ```
 
-We can see that when only presence-absence of trees is considered (*q* = 0, or Sorensen dissimilarity), dissimilarity is very low (0.03) --- implying no major difference in species composition in the sampled assemblages. When tree abundance is taken into account however, dissimilarity steadily increases through the values of *q* as changes in relative abundance of common species have increasing influence on community difference (reaching \>0.99 for *q* = 6). Plotting such profiles can help to illustrate the dominance of common species in the community, with steeper increases associated with higher dominance. If under-sampling of the community is suspected, dissimilarity for *q* \> 0 (and perhaps \> 1) is likely to be more reliable for assessing difference, as the common species are probably still sampled relatively accurately using the abundance-based measures.
+We can see that when only presence-absence of trees is considered (*q* = 0, or Sorensen dissimilarity), dissimilarity is very low (0.03) --- implying no major difference in species composition between the sampled assemblages. When tree abundance is taken into account however, dissimilarity steadily increases through the values of *q* as changes in relative abundance of common species have increasing influence on community difference (reaching \>0.99 for *q* = 6). Plotting such profiles can help to illustrate the dominance of common species in the community, with steeper increases associated with higher dominance. If under-sampling of the community is suspected, dissimilarity for *q* \> 0 (and perhaps \> 1) is likely to be more reliable for assessing difference, as the common species are probably still sampled relatively accurately using the abundance-based measures.
 
 What about pairwise dissimilarity? Simply set `pairwise = TRUE`:
 
 ```{r}
 system.time(
-  BCI.diss.pair <- dissCqN(BCI, q, pairwise = TRUE)
+  BCI.diss.pair <- dissCqN(BCI, pairwise = TRUE)
 )
 ```
 
-This generates a symmetrical pairwise dissimilarity matrix for each value of q, returned in a list:
+This generates a symmetrical pairwise dissimilarity matrix for each value of *q* (0---2 only) , returned in a list:
 
 ```{r}
-lapply(BCI.diss.pair[1:3], function(i) i[1:5, 1:5])  # for q = 0:2
+lapply(BCI.diss.pair, function(i) i[1:5, 1:5])
 ```
 
 Note that another way to calculate multiple-assemblage dissimilarity might be to take the means of these pairwise matrices (omitting self-comparisons):
@@ -70,12 +70,12 @@ sapply(BCI.diss.pair, function(i) {
 })
 ```
 
-These values are biased however, as they never take into account species shared by more than two assemblages, and there is also the problem of covariance between the pairwise comparisons [@diserudMultiplesiteSimilarityMeasure2007]. Multiple-assemblage measures should generally be preferred when assessing overall community difference for randomly-sampled assemblages. However, when assessing change across ordered assemblages, for example those along geographic or environmental gradients, pairwise comparisons can be more appropriate.
+These values are biased however, as they never take into account species shared by more than two assemblages, and there is also the problem of covariance between the pairwise comparisons [@diserudMultiplesiteSimilarityMeasure2007]. Multiple-assemblage measures should generally be preferred when assessing overall community difference for randomly-sampled assemblages. However, when assessing change across ordered assemblages, for example along geographic or environmental gradients, pairwise comparisons can be more appropriate.
 
 Subsets of assemblages can also be compared pairwise (using names or indices), if only some comparisons are of interest:
 
 ```{r}
-dissCqN(BCI, q = 0, pairwise = TRUE, compare.sub = list(1:2, 3:5))
+dissCqN(BCI, pairwise = TRUE, compare.sub = list(1:2, 3:5))
 ```
 
 This could potentially save time if the total number of assemblages in the dataset is very large.
