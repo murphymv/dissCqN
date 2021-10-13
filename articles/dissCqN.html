@@ -77,7 +77,7 @@
       <h1 data-toc-skip>dissCqN</h1>
                         <h4 class="author">Mark V. Murphy</h4>
             
-            <h4 class="date">2021-10-12</h4>
+            <h4 class="date">2021-10-13</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/murphymv/dissCqN/blob/main/vignettes/dissCqN.Rmd"><code>vignettes/dissCqN.Rmd</code></a></small>
       <div class="hidden name"><code>dissCqN.Rmd</code></div>
@@ -98,61 +98,61 @@
 <span class="op">)</span></code></pre></div>
 <table class="table">
 <colgroup>
-<col width="6%">
-<col width="20%">
-<col width="17%">
+<col width="7%">
 <col width="16%">
+<col width="20%">
 <col width="18%">
 <col width="20%">
+<col width="16%">
 </colgroup>
 <thead><tr class="header">
 <th align="left"></th>
-<th align="right">Pseudobombax.septenatum</th>
-<th align="right">Cecropia.obtusifolia</th>
-<th align="right">Pterocarpus.rohrii</th>
-<th align="right">Zanthoxylum.setulosum</th>
-<th align="right">Chrysophyllum.argenteum</th>
+<th align="right">Attalea.butyracea</th>
+<th align="right">Trichanthera.gigantea</th>
+<th align="right">Garcinia.intermedia</th>
+<th align="right">Cespedesia.spathulata</th>
+<th align="right">Hirtella.triandra</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">plot_35</td>
-<td align="right">2</td>
+<td align="left">plot_40</td>
 <td align="right">0</td>
-<td align="right">2</td>
 <td align="right">0</td>
-<td align="right">1</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">7</td>
 </tr>
 <tr class="even">
-<td align="left">plot_23</td>
+<td align="left">plot_6</td>
 <td align="right">1</td>
-<td align="right">3</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">plot_5</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="left">plot_31</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">14</td>
+</tr>
+<tr class="odd">
+<td align="left">plot_16</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1</td>
 <td align="right">4</td>
-<td align="right">0</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="left">plot_45</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">2</td>
-</tr>
-<tr class="even">
-<td align="left">plot_2</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="left">plot_4</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">2</td>
-<td align="right">0</td>
-<td align="right">2</td>
 </tr>
 </tbody>
 </table>
@@ -169,17 +169,17 @@
      col.axis <span class="op">=</span> <span class="st">"#cccccc"</span>, col.lab <span class="op">=</span> <span class="st">"#cccccc"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">q</span>, <span class="va">BCI.diss.mult</span><span class="op">)</span></code></pre></div>
 <p><img src="dissCqN_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
-<p>We can see that when only presence-absence of trees is considered (<em>q</em> = 0, or Sorensen dissimilarity), dissimilarity is very low (0.03) — implying no major difference in species composition in the sampled assemblages. When tree abundance is taken into account however, dissimilarity steadily increases through the values of <em>q</em> as changes in relative abundance of common species have increasing influence on community difference (reaching &gt;0.99 for <em>q</em> = 6). Plotting such profiles can help to illustrate the dominance of common species in the community, with steeper increases associated with higher dominance. If under-sampling of the community is suspected, dissimilarity for <em>q</em> &gt; 0 (and perhaps &gt; 1) is likely to be more reliable for assessing difference, as the common species are probably still sampled relatively accurately using the abundance-based measures.</p>
+<p>We can see that when only presence-absence of trees is considered (<em>q</em> = 0, or Sorensen dissimilarity), dissimilarity is very low (0.03) — implying no major difference in species composition between the sampled assemblages. When tree abundance is taken into account however, dissimilarity steadily increases through the values of <em>q</em> as changes in relative abundance of common species have increasing influence on community difference (reaching &gt;0.99 for <em>q</em> = 6). Plotting such profiles can help to illustrate the dominance of common species in the community, with steeper increases associated with higher dominance. If under-sampling of the community is suspected, dissimilarity for <em>q</em> &gt; 0 (and perhaps &gt; 1) is likely to be more reliable for assessing difference, as the common species are probably still sampled relatively accurately using the abundance-based measures.</p>
 <p>What about pairwise dissimilarity? Simply set <code>pairwise = TRUE</code>:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span><span class="op">(</span>
-  <span class="va">BCI.diss.pair</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dissCqN.html">dissCqN</a></span><span class="op">(</span><span class="va">BCI</span>, <span class="va">q</span>, pairwise <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+  <span class="va">BCI.diss.pair</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dissCqN.html">dissCqN</a></span><span class="op">(</span><span class="va">BCI</span>, pairwise <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   6.401   0.029   6.430</span></code></pre></div>
-<p>This generates a symmetrical pairwise dissimilarity matrix for each value of q, returned in a list:</p>
+<span class="co">#&gt;  10.414   0.039  10.455</span></code></pre></div>
+<p>This generates a symmetrical pairwise dissimilarity matrix for each value of <em>q</em> (0—2 only) , returned in a list:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">BCI.diss.pair</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="va">i</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span>  <span class="co"># for q = 0:2</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">BCI.diss.pair</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="va">i</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span>
 <span class="co">#&gt; $C0N</span>
 <span class="co">#&gt;           plot_1    plot_2    plot_3    plot_4    plot_5</span>
 <span class="co">#&gt; plot_1 0.0000000 0.2768362 0.3005464 0.2834225 0.2989691</span>
@@ -210,13 +210,24 @@
 <span class="op">}</span><span class="op">)</span>
 <span class="co">#&gt;       C0N       C1N       C2N </span>
 <span class="co">#&gt; 0.3399075 0.2826509 0.3273713</span></code></pre></div>
-<p>These values are biased however, as they never take into account species shared by more than two assemblages, and there is also the problem of covariance between the pairwise comparisons <span class="citation">(Diserud and Ødegaard 2007)</span>. Multiple-assemblage measures should generally be preferred when assessing overall community difference for randomly-sampled assemblages. However, when assessing change across ordered assemblages, for example those along geographic or environmental gradients, pairwise comparisons can be more appropriate.</p>
+<p>These values are biased however, as they never take into account species shared by more than two assemblages, and there is also the problem of covariance between the pairwise comparisons <span class="citation">(Diserud and Ødegaard 2007)</span>. Multiple-assemblage measures should generally be preferred when assessing overall community difference for randomly-sampled assemblages. However, when assessing change across ordered assemblages, for example along geographic or environmental gradients, pairwise comparisons can be more appropriate.</p>
 <p>Subsets of assemblages can also be compared pairwise (using names or indices), if only some comparisons are of interest:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/dissCqN.html">dissCqN</a></span><span class="op">(</span><span class="va">BCI</span>, q <span class="op">=</span> <span class="fl">0</span>, pairwise <span class="op">=</span> <span class="cn">TRUE</span>, compare.sub <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="fl">3</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="../reference/dissCqN.html">dissCqN</a></span><span class="op">(</span><span class="va">BCI</span>, pairwise <span class="op">=</span> <span class="cn">TRUE</span>, compare.sub <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="fl">3</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; $C0N</span>
 <span class="co">#&gt;           plot_3    plot_4    plot_5</span>
 <span class="co">#&gt; plot_1 0.3005464 0.2834225 0.2989691</span>
-<span class="co">#&gt; plot_2 0.2873563 0.2808989 0.3081081</span></code></pre></div>
+<span class="co">#&gt; plot_2 0.2873563 0.2808989 0.3081081</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $C1N</span>
+<span class="co">#&gt;           plot_3    plot_4    plot_5</span>
+<span class="co">#&gt; plot_1 0.1760514 0.1919161 0.1942899</span>
+<span class="co">#&gt; plot_2 0.1356817 0.1658189 0.1919815</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $C2N</span>
+<span class="co">#&gt;           plot_3    plot_4    plot_5</span>
+<span class="co">#&gt; plot_1 0.2089619 0.2074992 0.2415559</span>
+<span class="co">#&gt; plot_2 0.1089096 0.1332090 0.2308209</span></code></pre></div>
 <p>This could potentially save time if the total number of assemblages in the dataset is very large.</p>
 <div id="references" class="section level4 unnumbered">
 <h4 class="hasAnchor">
