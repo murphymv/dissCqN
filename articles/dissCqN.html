@@ -77,7 +77,7 @@
       <h1 data-toc-skip>dissCqN</h1>
                         <h4 class="author">Mark V. Murphy</h4>
             
-            <h4 class="date">2021-10-13</h4>
+            <h4 class="date">2021-10-14</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/murphymv/dissCqN/blob/main/vignettes/dissCqN.Rmd"><code>vignettes/dissCqN.Rmd</code></a></small>
       <div class="hidden name"><code>dissCqN.Rmd</code></div>
@@ -100,59 +100,59 @@
 <colgroup>
 <col width="7%">
 <col width="20%">
-<col width="15%">
-<col width="17%">
-<col width="17%">
 <col width="21%">
+<col width="18%">
+<col width="18%">
+<col width="14%">
 </colgroup>
 <thead><tr class="header">
 <th align="left"></th>
-<th align="right">Desmopsis.panamensis</th>
+<th align="right">Cassipourea.guianensis</th>
+<th align="right">Tabernaemontana.arborea</th>
+<th align="right">Perebea.xanthochyma</th>
+<th align="right">Siparuna.pauciflora</th>
 <th align="right">Inga.cocleensis</th>
-<th align="right">Piper.reticulatum</th>
-<th align="right">Sterculia.apetala</th>
-<th align="right">Zanthoxylum.panamense</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">plot_43</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="left">plot_30</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">3</td>
-</tr>
-<tr class="odd">
-<td align="left">plot_39</td>
-<td align="right">1</td>
-<td align="right">0</td>
+<td align="left">plot_23</td>
+<td align="right">6</td>
+<td align="right">5</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">1</td>
 </tr>
 <tr class="even">
-<td align="left">plot_32</td>
+<td align="left">plot_36</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">0</td>
-<td align="right">2</td>
-<td align="right">2</td>
 </tr>
 <tr class="odd">
-<td align="left">plot_3</td>
-<td align="right">4</td>
-<td align="right">4</td>
+<td align="left">plot_16</td>
+<td align="right">1</td>
+<td align="right">11</td>
 <td align="right">0</td>
 <td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">plot_10</td>
+<td align="right">1</td>
+<td align="right">10</td>
+<td align="right">6</td>
+<td align="right">1</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="left">plot_37</td>
 <td align="right">2</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0</td>
 </tr>
 </tbody>
 </table>
@@ -176,7 +176,7 @@
   <span class="va">BCI.diss.pair</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dissCqN.html">dissCqN</a></span><span class="op">(</span><span class="va">BCI</span>, pairwise <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;  10.784   0.036  10.824</span></code></pre></div>
+<span class="co">#&gt;   9.672   0.012   9.684</span></code></pre></div>
 <p>This generates a symmetrical pairwise dissimilarity matrix for each value of <em>q</em> (0–2 only), returned in a list:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">BCI.diss.pair</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="va">i</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span>
