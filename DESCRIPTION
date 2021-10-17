@@ -5,7 +5,7 @@ Version: 0.1.0
 Authors@R: person(given = "Mark", family = "Murphy", role = c("aut", "cre"), 
     email = "murphymv@gmail.com")
 Description: Calculate multiple or pairwise dissimilarity for orders q = 0-N 
-    (CqN; Chao et al. 2008 <doi:10/fcvn63>) for a set of species assemblages or 
+    (CqN; Chao et al., 2008 <doi:10/fcvn63>) for a set of species assemblages or 
     interaction networks.
 URL: https://murphymv.github.io/dissCqN/, https://github.com/murphymv/dissCqN
 BugReports: https://github.com/murphymv/dissCqN/issues
