@@ -6,7 +6,7 @@
 \alias{_PACKAGE}
 \title{dissCqN: Multiple Assemblage Dissimilarity for Orders q = 0-N}
 \description{
-Calculate multiple or pairwise dissimilarity for orders q = 0-N (CqN; Chao et al. 2008 <doi:10/fcvn63>) for a set of species assemblages or interaction networks.
+Calculate multiple or pairwise dissimilarity for orders q = 0-N (CqN; Chao et al., 2008 <doi:10/fcvn63>) for a set of species assemblages or interaction networks.
 }
 \seealso{
 Useful links:
