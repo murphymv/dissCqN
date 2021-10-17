@@ -57,21 +57,20 @@ Multiple assemblage dissimilarity for orders \emph{q} = 0-\emph{N}.
 \details{
 Dissimilarity is calculated here for multiple species assemblages
 (or interaction networks) via the \emph{CqN} generalisation of similarity
-indices (Chao \emph{et al.} 2008, Jost \emph{et al.} 2011). Increasing the value of
-\code{q} increases the 'depth' of the measure, that is, how much emphasis is
-placed on changes in relative abundance of the most common species. Setting
-\code{q = 0} represents the qualitative Sørensen index (Sørensen 1948), where
-rare and common species are treated equally. \code{q} > 0 is more sensitive to
-common species, with \code{q = 1} representing the Shannon-based Horn index
-(Horn 1966) and \code{q = 2} the Simpson-based Morisita-Horn index (Morisita
-1959, Horn 1966). For \emph{N} > 2, indices are generalised to consider species
-shared across multiple assemblages (Diserud & Ødegaard 2007, eqns. 6.3-6.5
-in Jost \emph{et al.} 2011). For \code{q} >= 2 <= \emph{N}, common species increasingly
+indices (Chao et al., 2008; Jost et al., 2011). Increasing the value of \code{q}
+increases the 'depth' of the measure, that is, how much emphasis is placed
+on changes in relative abundance of the most common species. Setting \code{q = 0} represents the qualitative Sørensen index (Sørensen, 1948), where rare
+and common species are treated equally. \code{q} > 0 is more sensitive to common
+species, with \code{q = 1} representing the Shannon-based Horn index (Horn,
+1966) and \code{q = 2} the Simpson-based Morisita-Horn index (Horn, 1966;
+Morisita, 1959). For \emph{N} > 2, indices are generalised to consider species
+shared across multiple assemblages (Diserud & Ødegaard, 2007; eqns. 6.3-6.5
+in Jost et al., 2011). For \code{q} >= 2 <= \emph{N}, common species increasingly
 dominate the measure, and it can then be interpreted as the ratio of two
 probabilities of randomly sampling \code{q} individuals of the same species from
 the \emph{N} assemblages, where 1) the individuals came from at least one
 different assemblage (\eqn{^{q}G_{D}}{qGD}) and 2) they all came from the
-same assemblage (\eqn{^{q}G_{S}}{qGS}) (Jost \emph{et al.} 2011). Dissimilarity
+same assemblage (\eqn{^{q}G_{S}}{qGS}) (Jost et al., 2011). Dissimilarity
 is thus:
 
 \deqn{1 - ^{q}G_{D} / ^{q}G_{S}}{1 - qGD / qGS}
@@ -88,7 +87,7 @@ matrices), multiple or pairwise interaction dissimilarity will be
 calculated for networks of shared species only (see \code{\link[=netShared]{netShared()}}). This
 can be useful to help partition the different components of network
 dissimilarity, e.g. dissimilarity due to interaction 'rewiring' among
-shared species vs. that due to species turnover (Poisot \emph{et al.} 2012).
+shared species vs. that due to species turnover (Poisot et al., 2012).
 }
 \examples{
 # Sample community data from SpadeR package (three assemblages, 120 species)
@@ -113,14 +112,13 @@ dissCqN::dissCqN(t(d), pairwise = TRUE)
 \references{
 Chao, A., Jost, L., Chiang, S. C., Jiang, Y.-H., & Chazdon, R. L.
 (2008). A Two-Stage Probabilistic Approach to Multiple-Community Similarity
-Indices. \emph{Biometrics}, \strong{64}(4), 1178–1186. \doi{10/fcvn63}
+Indices. \emph{Biometrics}, \emph{64}(4), 1178–1186. \doi{10/fcvn63}
 
 Diserud, O. H., & Ødegaard, F. (2007). A multiple-site similarity measure.
-\emph{Biology Letters}, \strong{3}(1), 20–22. \doi{10/bwhfx6}
+\emph{Biology Letters}, \emph{3}(1), 20–22. \doi{10/bwhfx6}
 
 Horn, H. S. (1966). Measurement of “Overlap” in Comparative Ecological
-Studies. \emph{The American Naturalist}, \strong{100}(914), 419–424.
-\doi{10/b62ct5}
+Studies. \emph{The American Naturalist}, \emph{100}(914), 419–424. \doi{10/b62ct5}
 
 Jost, L., Chao, A., & Chazdon, R. L. (2011). Compositional similarity and
 beta diversity. In A. E. Magurran & B. J. McGill (Eds.), \emph{Biological
@@ -129,14 +127,14 @@ University Press.
 
 Morisita, M. (1959). Measuring of interspecific association and similarity
 between communities. \emph{Memoirs of the Faculty of Science, Kyushu Univ.,
-Series E (Biology)}, \strong{3}, 65–80.
+Series E (Biology)}, \emph{3}, 65–80.
 
 Poisot, T., Canard, E., Mouillot, D., Mouquet, N., & Gravel, D. (2012). The
-dissimilarity of species interaction networks. \emph{Ecology Letters},
-\strong{15}(12), 1353–1361. \doi{10/f4dv37}
+dissimilarity of species interaction networks. \emph{Ecology Letters}, \emph{15}(12),
+1353–1361. \doi{10/f4dv37}
 
 Sørensen, T. (1948). A method of establishing groups of equal amplitude in
 plant sociology based on similarity of species and its application to
 analyses of the vegetation on Danish commons. \emph{Kongelige Danske
-Videnskabernes Selskabs Biologiske Skrifter}, \strong{5}, 1–34.
+Videnskabernes Selskabs Biologiske Skrifter}, \emph{5}, 1–34.
 }
