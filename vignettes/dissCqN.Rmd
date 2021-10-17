@@ -6,6 +6,8 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: references.bib
+csl: apa.csl
+link-citations: true
 ---
 
 ```{r setup, include = FALSE}
@@ -15,7 +17,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-Let's use `dissCqN` to calculate compositional dissimilarity for a dataset of tree species counts from tropical forests of Barro Colorado Island, Panama [@conditBetaDiversityTropicalForest2002], [provided with the `vegan` package](https://rdrr.io/cran/vegan/man/BCI.html). There are 50 sampled 1-hectare forest plots (rows) and 225 total tree species (columns). Let's take a look at a sample:
+Let's use `dissCqN` to calculate compositional dissimilarity for a dataset of tree species counts from tropical forests of Barro Colorado Island, Panama [@condit2002], [provided with the `vegan` package](https://rdrr.io/cran/vegan/man/BCI.html). There are 50 sampled 1-hectare forest plots (rows) and 225 total tree species (columns). Let's take a look at a sample:
 
 ```{r}
 # install.packages(c("dissCqN", "vegan"))
@@ -35,10 +37,10 @@ q <- 0:6
 (BCI.diss.mult <- dissCqN(BCI, q))
 ```
 
-And plot a dissimilarity profile for *q* [@jostCompositionalSimilarityBeta2011]:
+And plot a dissimilarity profile for *q* [@jost2011]:
 
 ```{r}
-par(bg = "#303030", fg = "#cccccc")  # dark plot scheme
+par(bg = "#333333", fg = "#cccccc")  # dark plot scheme
 plot(q, BCI.diss.mult, xlab = expression(italic("q")), ylab = "Dissimilarity", 
      col.axis = "#cccccc", col.lab = "#cccccc")
 lines(q, BCI.diss.mult)
@@ -68,7 +70,7 @@ sapply(BCI.diss.pair, function(i) {
 })
 ```
 
-These values are biased however, as they never take into account species shared by more than two assemblages, and there is also the problem of covariance between the pairwise comparisons [@diserudMultiplesiteSimilarityMeasure2007]. Multiple-assemblage measures should generally be preferred when assessing overall community difference for randomly-sampled assemblages. However, when assessing change across ordered assemblages, for example along geographic or environmental gradients, pairwise comparisons can be more appropriate.
+These values are biased however, as they never take into account species shared by more than two assemblages, and there is also the problem of covariance between the pairwise comparisons [@diserud2007]. Multiple-assemblage measures should generally be preferred when assessing overall community difference for randomly-sampled assemblages. However, when assessing change across ordered assemblages, for example along geographic or environmental gradients, pairwise comparisons can be more appropriate.
 
 Subsets of assemblages can also be compared pairwise (using names or indices), if only some comparisons are of interest:
 
