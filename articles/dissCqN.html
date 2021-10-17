@@ -97,59 +97,59 @@
 <table class="table">
 <colgroup>
 <col width="8%">
-<col width="14%">
 <col width="17%">
-<col width="18%">
-<col width="23%">
+<col width="15%">
 <col width="19%">
+<col width="19%">
+<col width="21%">
 </colgroup>
 <thead><tr class="header">
 <th align="left"></th>
-<th align="right">Ocotea.cernua</th>
-<th align="right">Gustavia.superba</th>
-<th align="right">Amaioua.corymbosa</th>
-<th align="right">Cinnamomum.triplinerve</th>
-<th align="right">Drypetes.standleyi</th>
+<th align="right">Pourouma.bicolor</th>
+<th align="right">Ficus.popenoei</th>
+<th align="right">Psychotria.grandis</th>
+<th align="right">Guarea.grandifolia</th>
+<th align="right">Desmopsis.panamensis</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">plot_38</td>
-<td align="right">0</td>
-<td align="right">11</td>
+<td align="left">plot_31</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">12</td>
-</tr>
-<tr class="even">
-<td align="left">plot_18</td>
-<td align="right">1</td>
-<td align="right">3</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="left">plot_8</td>
-<td align="right">0</td>
-<td align="right">4</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 </tr>
 <tr class="even">
-<td align="left">plot_11</td>
-<td align="right">0</td>
-<td align="right">2</td>
+<td align="left">plot_6</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">3</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
 </tr>
 <tr class="odd">
-<td align="left">plot_15</td>
-<td align="right">2</td>
-<td align="right">4</td>
+<td align="left">plot_20</td>
 <td align="right">0</td>
 <td align="right">0</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">plot_7</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">plot_29</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">1</td>
 <td align="right">0</td>
 </tr>
 </tbody>
@@ -174,7 +174,7 @@
   <span class="va">BCI.diss.pair</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dissCqN.html">dissCqN</a></span><span class="op">(</span><span class="va">BCI</span>, pairwise <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;   6.145   0.012   6.164</span></code></pre></div>
+<span class="co">#&gt;  10.560   0.024  10.586</span></code></pre></div>
 <p>This generates a symmetrical pairwise dissimilarity matrix for each value of <em>q</em> (0–2 only), returned in a list:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">BCI.diss.pair</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="va">i</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span>
