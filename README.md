@@ -24,7 +24,7 @@ Total](http://cranlogs.r-pkg.org/badges/grand-total/dissCqN)
 
 `dissCqN` is a small package designed to make the process of calculating
 multiple or pairwise assemblage dissimilarity via the C<sub>*qN*</sub>
-generalisation of similarity indices (Chao *et al.* 2008, Jost *et al.*
+generalisation of similarity indices (Chao et al., 2008, Jost et al.,
 2011) relatively straightforward and fast. Although C<sub>*qN*</sub> can
 also be calculated using the `SpadeR` package
 (e.g. [`SpadeR::SimilarityMult()`](https://rdrr.io/cran/SpadeR/man/SimilarityMult.html)
