@@ -97,23 +97,23 @@
 <table class="table">
 <colgroup>
 <col width="8%">
-<col width="17%">
+<col width="18%">
 <col width="15%">
 <col width="19%">
-<col width="19%">
+<col width="18%">
 <col width="21%">
 </colgroup>
 <thead><tr class="header">
 <th align="left"></th>
-<th align="right">Pourouma.bicolor</th>
+<th align="right">Maclura.tinctoria</th>
 <th align="right">Ficus.popenoei</th>
-<th align="right">Psychotria.grandis</th>
-<th align="right">Guarea.grandifolia</th>
-<th align="right">Desmopsis.panamensis</th>
+<th align="right">Macrocnemum.roseum</th>
+<th align="right">Xylopia.macrantha</th>
+<th align="right">Cecropia.obtusifolia</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">plot_31</td>
+<td align="left">plot_4</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
@@ -121,35 +121,35 @@
 <td align="right">0</td>
 </tr>
 <tr class="even">
-<td align="left">plot_6</td>
+<td align="left">plot_43</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">2</td>
 <td align="right">0</td>
 </tr>
 <tr class="odd">
-<td align="left">plot_20</td>
+<td align="left">plot_30</td>
+<td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">1</td>
-<td align="right">0</td>
 </tr>
 <tr class="even">
-<td align="left">plot_7</td>
+<td align="left">plot_50</td>
+<td align="right">0</td>
 <td align="right">0</td>
 <td align="right">1</td>
-<td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 </tr>
 <tr class="odd">
-<td align="left">plot_29</td>
-<td align="right">0</td>
+<td align="left">plot_27</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">1</td>
+<td align="right">8</td>
 <td align="right">0</td>
 </tr>
 </tbody>
@@ -174,7 +174,7 @@
   <span class="va">BCI.diss.pair</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dissCqN.html">dissCqN</a></span><span class="op">(</span><span class="va">BCI</span>, pairwise <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="op">)</span>
 <span class="co">#&gt;    user  system elapsed </span>
-<span class="co">#&gt;  10.560   0.024  10.586</span></code></pre></div>
+<span class="co">#&gt;   9.672   0.061   9.733</span></code></pre></div>
 <p>This generates a symmetrical pairwise dissimilarity matrix for each value of <em>q</em> (0–2 only), returned in a list:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">BCI.diss.pair</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="va">i</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span>
@@ -232,13 +232,13 @@
 <a href="#references" class="anchor"></a>References</h4>
 <div id="refs" class="references">
 <div id="ref-condit2002">
-<p>Condit, R., Pitman, N., Leigh, E. G., Chave, J., Terborgh, J., Foster, R. B., Núñez, P., Aguilar, S., Valencia, R., Villa, G., Muller-Landau, H. C., Losos, E., &amp; Hubbell, S. P. (2002). Beta-diversity in tropical forest trees. <em>Science</em>, <em>295</em>(5555), 666–669. <a href="https://doi.org/10/c8cjfz">https://doi.org/10/c8cjfz</a></p>
+<p>Condit, R., Pitman, N., Leigh, E. G., Chave, J., Terborgh, J., Foster, R. B., Núñez, P., Aguilar, S., Valencia, R., Villa, G., Muller-Landau, H. C., Losos, E., &amp; Hubbell, S. P. (2002). Beta-Diversity in Tropical Forest Trees. <em>Science</em>, <em>295</em>(5555), 666–669. <a href="https://doi.org/10/c8cjfz">https://doi.org/10/c8cjfz</a></p>
 </div>
 <div id="ref-diserud2007">
 <p>Diserud, O. H., &amp; Ødegaard, F. (2007). A multiple-site similarity measure. <em>Biology Letters</em>, <em>3</em>(1), 20–22. <a href="https://doi.org/10/bwhfx6">https://doi.org/10/bwhfx6</a></p>
 </div>
 <div id="ref-jost2011">
-<p>Jost, L., Chao, A., &amp; Chazdon, R. L. (2011). <em>Compositional similarity and beta diversity</em> (A. E. Magurran &amp; B. J. McGill, Eds.; pp. 66–84). Oxford University Press.</p>
+<p>Jost, L., Chao, A., &amp; Chazdon, R. L. (2011). Compositional similarity and beta diversity. In A. E. Magurran &amp; B. J. McGill (Eds.), <em>Biological Diversity: Frontiers in Measurement and Assessment</em> (pp. 66–84). Oxford University Press.</p>
 </div>
 </div>
 </div>
